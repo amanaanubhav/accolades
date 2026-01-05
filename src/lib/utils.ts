@@ -24,7 +24,8 @@ export function cn(...inputs: ClassValue[]): string {
  * @param dateString - ISO date string
  * @returns Formatted date (e.g., "Jan 5, 2026")
  */
-export function formatDate(dateString: string): string {
+export function formatDate(dateString: string | null | undefined): string {
+    if (!dateString) return 'TBD';
     return new Date(dateString).toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
@@ -38,7 +39,8 @@ export function formatDate(dateString: string): string {
  * @param deadline - ISO date string
  * @returns Number of days remaining (negative if past)
  */
-export function getDaysRemaining(deadline: string): number {
+export function getDaysRemaining(deadline: string | null | undefined): number {
+    if (!deadline) return 999; // Far future if no deadline
     const deadlineDate = new Date(deadline);
     const today = new Date();
 
@@ -59,7 +61,8 @@ export function getDaysRemaining(deadline: string): number {
  * @param maxLength - Maximum length before truncation
  * @returns Truncated text with ellipsis if needed
  */
-export function truncateText(text: string, maxLength: number): string {
+export function truncateText(text: string | null | undefined, maxLength: number): string {
+    if (!text) return '';
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength - 3) + '...';
 }

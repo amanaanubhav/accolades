@@ -1,33 +1,26 @@
 /**
  * Supabase Client Singleton
- * 
+ *
  * Initializes and exports a single Supabase client instance
  * for use throughout the application.
  * Gracefully handles missing environment variables.
  */
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { Database } from '@/supabase/types'; // We will generate this next
 
 // Environment variables for Supabase configuration
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 /**
  * Check if Supabase is properly configured
  */
-export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseKey);
 
-/**
- * Supabase client singleton (null if not configured)
- * Used for all database operations
- */
-export const supabase: SupabaseClient | null = isSupabaseConfigured
-    ? createClient(supabaseUrl!, supabaseAnonKey!, {
-        auth: {
-            persistSession: false, // Disable session persistence for SSR compatibility
-        },
-    })
-    : null;
+// Typed client for auto-completion and error checking
+// Note: using ! asserts these are defined, aligning with user request.
+export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
 // Log warning if not configured (only in development)
 if (!isSupabaseConfigured && typeof window !== 'undefined') {

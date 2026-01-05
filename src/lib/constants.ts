@@ -44,6 +44,7 @@ export function getCategoryMeta(categoryId: string): CategoryMeta | undefined {
 /**
  * Mock opportunities for development and fallback
  */
+/*
 export const MOCK_OPPORTUNITIES: Opportunity[] = [
     {
         id: '1',
@@ -112,3 +113,4 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
         tags: ['Machine Learning', 'Autonomous Vehicles', 'AWS'],
     },
 ];
+*/

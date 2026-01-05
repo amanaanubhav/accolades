@@ -1,111 +1,105 @@
-/**
- * useOpportunities Hook
- * 
- * Fetches opportunities from Supabase with mock data fallback.
- * Applies filters and returns filtered results.
- */
-
-'use client';
-
 import { useState, useEffect, useMemo } from 'react';
-import type { Opportunity, FilterState } from '@/types';
-import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
-import { MOCK_OPPORTUNITIES } from '@/lib/constants';
-import { getDaysRemaining } from '@/lib/utils';
+import { supabase } from '@/lib/supabaseClient';
+import type { Opportunity, FilterState, OpportunityCategory } from '@/types';
 
-interface UseOpportunitiesResult {
-    opportunities: Opportunity[];
-    isLoading: boolean;
-    error: string | null;
-    refetch: () => Promise<void>;
+/**
+ * Transform Supabase row to Opportunity interface
+ */
+function transformOpportunity(row: any): Opportunity {
+    return {
+        id: row.id,
+        title: row.title || 'Untitled',
+        organization: row.organizations?.name || 'Unknown Organization',
+        category: mapCategory(row.category),
+        deadline: row.end_date || new Date().toISOString(),
+        description: row.brief_overview || '',
+        url: row.apply_link || '#',
+        tags: row.opportunity_tags?.map((ot: any) => ot.tags?.name).filter(Boolean) || [],
+        location: row.location || undefined,
+        isPaid: row.cost_type === 'Paid',
+        createdAt: row.created_at,
+    };
 }
 
 /**
- * Hook to fetch and filter opportunities
- * 
- * @param filters - Current filter state
- * @returns Filtered opportunities, loading state, and error
+ * Map category string to OpportunityCategory type
  */
-export function useOpportunities(filters: FilterState): UseOpportunitiesResult {
-    const [allOpportunities, setAllOpportunities] = useState<Opportunity[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+function mapCategory(category: string | null): OpportunityCategory {
+    const normalized = category?.toLowerCase();
+    if (normalized === 'hackathon' || normalized === 'hackathons') return 'hackathon';
+    if (normalized === 'internship' || normalized === 'internships') return 'internship';
+    if (normalized === 'challenge' || normalized === 'challenges' || normalized === 'competition' || normalized === 'competitions') return 'challenge';
+    return 'hackathon'; // Default fallback
+}
+
+export const useOpportunities = (filters?: FilterState) => {
+    const [rawData, setRawData] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    /**
-     * Fetch opportunities from Supabase or use mock data
-     */
-    const fetchOpportunities = async () => {
-        setIsLoading(true);
-        setError(null);
-
-        try {
-            if (!isSupabaseConfigured || !supabase) {
-                // Use mock data if Supabase is not configured
-                console.info('📦 Using mock data (Supabase not configured)');
-                setAllOpportunities(MOCK_OPPORTUNITIES);
-                return;
-            }
-
-            const { data, error: supabaseError } = await supabase
-                .from('opportunities')
-                .select('*')
-                .order('deadline', { ascending: true });
-
-            if (supabaseError) {
-                throw new Error(supabaseError.message);
-            }
-
-            setAllOpportunities(data || []);
-        } catch (err) {
-            console.warn('⚠️ Failed to fetch from Supabase, using mock data:', err);
-            setError(err instanceof Error ? err.message : 'Failed to fetch opportunities');
-            // Fallback to mock data on error
-            setAllOpportunities(MOCK_OPPORTUNITIES);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
     useEffect(() => {
+        const fetchOpportunities = async () => {
+            try {
+                setLoading(true);
+
+                if (!supabase) {
+                    throw new Error('Supabase client not configured');
+                }
+
+                const { data, error } = await supabase
+                    .from('opportunities')
+                    .select(`
+                        *,
+                        organizations (name, logo_url, website_url),
+                        opportunity_tags (
+                            tags (name)
+                        )
+                    `)
+                    .order('end_date', { ascending: true });
+
+                if (error) throw error;
+                setRawData(data || []);
+            } catch (err: any) {
+                console.error('Error fetching opportunities:', err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchOpportunities();
     }, []);
 
-    /**
-     * Apply filters to opportunities
-     */
-    const filteredOpportunities = useMemo(() => {
-        return allOpportunities.filter((opp) => {
+    // Transform and filter data
+    const opportunities = useMemo(() => {
+        let transformed = rawData.map(transformOpportunity);
+
+        // Apply filters if provided
+        if (filters) {
             // Category filter
-            if (filters.category !== 'all' && opp.category !== filters.category) {
-                return false;
+            if (filters.category && filters.category !== 'all') {
+                transformed = transformed.filter(opp => opp.category === filters.category);
             }
 
-            // Search filter (title, organization, description, tags)
+            // Search filter
             if (filters.search) {
                 const searchLower = filters.search.toLowerCase();
-                const matchesSearch =
+                transformed = transformed.filter(opp =>
                     opp.title.toLowerCase().includes(searchLower) ||
                     opp.organization.toLowerCase().includes(searchLower) ||
-                    opp.description.toLowerCase().includes(searchLower) ||
-                    opp.tags.some((tag) => tag.toLowerCase().includes(searchLower));
-
-                if (!matchesSearch) return false;
+                    opp.tags.some(tag => tag.toLowerCase().includes(searchLower))
+                );
             }
 
             // Expired filter
             if (!filters.showExpired) {
-                const daysRemaining = getDaysRemaining(opp.deadline);
-                if (daysRemaining < 0) return false;
+                const now = new Date().toISOString();
+                transformed = transformed.filter(opp => opp.deadline >= now);
             }
+        }
 
-            return true;
-        });
-    }, [allOpportunities, filters]);
+        return transformed;
+    }, [rawData, filters]);
 
-    return {
-        opportunities: filteredOpportunities,
-        isLoading,
-        error,
-        refetch: fetchOpportunities,
-    };
-}
+    return { opportunities, loading, error, isLoading: loading };
+};

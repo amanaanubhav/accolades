@@ -56,10 +56,16 @@ export function Footer() {
                         </FooterLink>
                     </nav>
 
-                    {/* Copyright */}
-                    <p className="text-sm text-[var(--color-silver)]">
-                        © {currentYear} Opp-Portal. All rights reserved.
-                    </p>
+
+                    {/* Copyright & Branding */}
+                    <div className="flex flex-col md:items-end gap-1">
+                        <p className="text-sm text-[var(--color-silver)] font-medium">
+                            © 2026 Anubhav Productions.
+                        </p>
+                        <p className="text-xs text-[var(--color-silver)]/60">
+                            Universally copyrighted by Aman Anubhav. All rights reserved.
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>

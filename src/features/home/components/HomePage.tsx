@@ -129,17 +129,6 @@ function HomeContent() {
 }
 
 /**
- * Home Page with Suspense boundary
- */
-export default function HomePage() {
-    return (
-        <Suspense fallback={<LoadingFallback />}>
-            <HomeContent />
-        </Suspense>
-    );
-}
-
-/**
  * Loading fallback for Suspense
  */
 function LoadingFallback() {
@@ -152,5 +141,16 @@ function LoadingFallback() {
                 <div className="w-full max-w-xl h-12 rounded-xl shimmer mx-auto" />
             </div>
         </div>
+    );
+}
+
+/**
+ * Home Page with Suspense boundary
+ */
+export function HomePage() {
+    return (
+        <Suspense fallback={<LoadingFallback />}>
+            <HomeContent />
+        </Suspense>
     );
 }

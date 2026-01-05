@@ -1,0 +1,126 @@
+================================================================================
+PROJECT: ACCOLADES (OPP-PORTAL) - TECHNICAL MASTER DOCUMENTATION
+VERSION: 1.0.0
+STACK: Next.js 14 (App Router), Supabase (PostgreSQL), TypeScript, Tailwind CSS
+================================================================================
+
+1. HIGH-LEVEL ARCHITECTURE
+--------------------------------------------------------------------------------
+The application follows a "Hybrid Rendering" architecture using Next.js 14.
+- Server-Side (SSR): Handles data fetching, SEO generation, and initial HTML render for performance.
+- Client-Side (CSR): Handles interactive UI elements (hover effects, animations, clickable cards).
+- Database: Relational PostgreSQL hosted on Supabase.
+- Assets: Images are served via external direct URLs (CDNs) to keep the repo lightweight.
+
+2. DATAFLOW WORKFLOW
+--------------------------------------------------------------------------------
+[Step 1: Data Ingestion]
+   Source: `data.json` (Structured JSON file in root).
+   Process: `src/scripts/seed.ts` reads this file.
+   Sanitization: The script cleans "dirty" data (e.g., converts "Paid ($19)" -> "Paid", "Varies" -> null).
+   Action: Data is upserted into Supabase tables via the Supabase JS Client.
+
+[Step 2: Frontend Retrieval]
+   Route: `src/app/opportunities/page.tsx` (Server Component).
+   Action: Connects to Supabase.
+   Query: Fetches opportunities + JOINS organizations data (name, logo, website).
+   Output: Passes typed JSON data to the Client Components.
+
+[Step 3: UI Rendering]
+   Component: `src/components/OpportunityCard.tsx`.
+   Action: Receives data prop.
+   Logic: Renders the "Metallic" UI. Handles fallback images.
+   Interaction: Clicking Logo -> Opens Org Website. Clicking Button -> Opens Apply Link.
+
+3. DATABASE SCHEMA (SUPABASE POSTGRESQL)
+--------------------------------------------------------------------------------
+The database uses a normalized relational structure to reduce redundancy.
+
+Table: organizations
+--------------------
+- id (uuid, PK): Unique identifier.
+- name (text, UNIQUE): Name of the org (e.g., "Google"). *Constraint enforced to prevent duplicates.*
+- website_url (text): Official homepage.
+- logo_url (text): Direct link to transparent PNG/SVG.
+- verified (bool): Trust marker.
+
+Table: opportunities
+--------------------
+- id (uuid, PK): Unique identifier.
+- org_id (uuid, FK): Links to `organizations.id`.
+- title (text): Event title.
+- banner_url (text): 16:9 hero image.
+- mode (enum): 'Virtual', 'Hybrid', 'On-site'.
+- cost_type (enum): 'Free', 'Paid'.
+- end_date (date): Application deadline (YYYY-MM-DD).
+- apply_link (text): Destination URL for users.
+- [Other fields]: duration, location, stipend_prize, etc.
+
+Table: tags & opportunity_tags
+------------------------------
+- Used for Many-to-Many relationships (filtering).
+- `opportunity_tags` is a junction table linking `opportunities.id` and `tags.id`.
+
+4. KEY FILE IMPLEMENTATIONS & LOGIC
+--------------------------------------------------------------------------------
+
+A. The "Genesis" Seed Script (`src/scripts/seed.ts`)
+   - Purpose: Populates the DB from `data.json`.
+   - Key Logic: 
+     1. Uses `upsert` with `{ onConflict: 'name' }` for Organizations to prevent duplicates.
+     2. Uses `sanitizeCostType()` helper to force enum compliance ('Free' | 'Paid').
+     3. Uses `sanitizeDate()` to convert strings like "TBD" into SQL-compatible `null`.
+   - Execution: `npx ts-node-esm src/scripts/seed.ts`.
+
+B. The Server Page (`src/app/page.tsx`)
+   - Purpose: Main entry point / Dashboard.
+   - Logic: 
+     - Instantiates `createClient(cookieStore)`.
+     - executed `supabase.from('opportunities').select('*, organizations(*)')`.
+     - Passes data to `<OpportunityGrid />` or maps directly to `<OpportunityCard />`.
+
+C. The Metallic Card (`src/components/OpportunityCard.tsx`)
+   - Purpose: Visual presentation.
+   - Design System: 
+     - Background: `bg-zinc-900/50` with `backdrop-blur-md`.
+     - Border: `border-zinc-800`.
+     - Animation: Framer Motion `whileHover={{ scale: 1.02 }}`.
+   - Critical Fix: 
+     - Handles the nested data structure. Uses `data.organizations?.name` instead of `data.organization` to prevent `.slice()` crashes.
+     - Separates click targets: Card Body (passive), Logo (Org Website), Button (Apply).
+
+5. SEO & INTEGRATION SUITE
+--------------------------------------------------------------------------------
+
+A. Dynamic Metadata (`src/app/opportunities/[id]/page.tsx`)
+   - Function: `generateMetadata({ params })`.
+   - Logic: Fetches the specific banner/title for the requested ID.
+   - Output: Injects Open Graph (OG) tags so links look good on Twitter/LinkedIn/Discord.
+   - Fallback: If banner is missing, falls back to Org Logo.
+
+B. Sitemap (`src/app/sitemap.ts`)
+   - Logic: Fetches ALL opportunity IDs.
+   - Output: Generates an XML list of URLs (`/opportunities/uuid`) for Google Crawlers.
+   - Frequency: Marks dynamic pages as `weekly` change frequency.
+
+C. JSON-LD Structured Data
+   - Logic: Injects a `<script type="application/ld+json">` tag into the HTML head.
+   - Schema: Uses `schema.org/Event` to tell Google "This is an event with a deadline."
+   - Benefit: Enables "Rich Snippets" (showing dates/location directly in Google Search results).
+
+6. API & EXTERNAL LINKS
+--------------------------------------------------------------------------------
+- Supabase Client: `@supabase/supabase-js` (used in scripts) and `@/utils/supabase/server` (used in App).
+- Image Hosting: All images are hotlinked via URL (verified direct links).
+- Font: Inter (via `next/font/google`).
+- Icons: Lucide React (`lucide-react`).
+
+7. ENVIRONMENT VARIABLES (.env.local)
+--------------------------------------------------------------------------------
+- NEXT_PUBLIC_SUPABASE_URL: The API endpoint.
+- NEXT_PUBLIC_SUPABASE_ANON_KEY: Public key for client-side reads.
+- SUPABASE_SERVICE_ROLE_KEY: Private admin key for `seed.ts` (writes/deletes).
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================

@@ -35,7 +35,19 @@ interface OpportunityCardProps {
  * - Polished metallic "Apply" button
  */
 export function OpportunityCard({ opportunity, className }: OpportunityCardProps) {
-    const { id, title, organization, category, deadline, description, url, tags, location, isPaid } = opportunity;
+    // Safe destructuring with defaults
+    const {
+        id = '',
+        title = 'Untitled Opportunity',
+        organization = 'Unknown Organization',
+        category = 'hackathon',
+        deadline = new Date().toISOString(),
+        description = '',
+        url = '#',
+        tags = [],
+        location,
+        isPaid
+    } = opportunity || {};
 
     const categoryMeta = getCategoryMeta(category);
 
@@ -78,12 +90,12 @@ export function OpportunityCard({ opportunity, className }: OpportunityCardProps
                                 color: categoryMeta?.color || 'var(--color-silver)',
                             }}
                         >
-                            {organization.slice(0, 2).toUpperCase()}
+                            {(organization || "Unknown").slice(0, 2).toUpperCase()}
                         </div>
 
                         <div className="min-w-0">
                             <p className="text-xs text-[var(--color-silver)] truncate">
-                                {organization}
+                                {organization || "Unknown Organization"}
                             </p>
                             <h3 className="text-lg font-semibold text-[var(--color-platinum)] truncate">
                                 {title}

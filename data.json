@@ -1,0 +1,1142 @@
+{
+    "opportunities": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "title": "MIT Solve Global Challenges 2026",
+            "organization": "Massachusetts Institute of Technology",
+            "category": "Competition",
+            "mode": "Hybrid",
+            "location": "Cambridge, MA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "$1,500,000+ total funding",
+            "application_link": "https://solve.mit.edu/challenges",
+            "application_deadline": "2026-05-14",
+            "duration": "Year-round program",
+            "prerequisites": [
+                "Tech innovation",
+                "Problem solving",
+                "Social impact focus",
+                "Entrepreneurship"
+            ],
+            "brief_overview": "Tech-based solutions for global challenges. $1.5M+ funding, mentorship from MIT, and partnerships with leading organizations worldwide.",
+            "tags": [
+                "MIT",
+                "Social Impact",
+                "Innovation",
+                "Funding",
+                "Global Challenges"
+            ],
+            "website_url": "https://solve.mit.edu",
+            "logo_url": "https://solve.mit.edu/assets/img/solve-logo.png",
+            "banner_url": "https://solve.mit.edu/assets/img/challenges-hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440002",
+            "title": "Hult Prize 2026",
+            "organization": "Hult International Business School",
+            "category": "Competition",
+            "mode": "Hybrid",
+            "location": "United Nations, New York, USA",
+            "cost_type": "Free",
+            "stipend_prize": "$1,000,000",
+            "application_link": "https://www.hultprize.org",
+            "application_deadline": "2026-02-28",
+            "duration": "5-stage competition (September to September)",
+            "prerequisites": [
+                "Social entrepreneurship",
+                "Business model development",
+                "SDG knowledge",
+                "Team of 4-5 members"
+            ],
+            "brief_overview": "World's largest student competition for social good. Win $1M to change the world through social entrepreneurship at UN headquarters.",
+            "tags": [
+                "Social Impact",
+                "UN SDGs",
+                "Entrepreneurship",
+                "Million Dollar Prize",
+                "Students"
+            ],
+            "website_url": "https://www.hultprize.org",
+            "logo_url": "https://www.hultprize.org/wp-content/uploads/2023/02/hult-prize-logo.png",
+            "banner_url": "https://www.hultprize.org/wp-content/uploads/2023/08/hult-prize-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440003",
+            "title": "XPRIZE Carbon Removal",
+            "organization": "XPRIZE Foundation",
+            "category": "Competition",
+            "mode": "Hybrid",
+            "location": "Global",
+            "cost_type": "Free",
+            "stipend_prize": "$100,000,000",
+            "application_link": "https://www.xprize.org/prizes/elonmusk",
+            "application_deadline": "2026-04-22",
+            "duration": "4-year competition",
+            "prerequisites": [
+                "Carbon capture technology",
+                "Atmospheric science",
+                "Engineering expertise",
+                "Innovation"
+            ],
+            "brief_overview": "Largest prize in history. Remove CO2 from atmosphere or oceans. Funded by Elon Musk Foundation to combat climate change.",
+            "tags": [
+                "Climate",
+                "Carbon Removal",
+                "100M Prize",
+                "Innovation",
+                "Sustainability"
+            ],
+            "website_url": "https://www.xprize.org/prizes/elonmusk",
+            "logo_url": "https://www.xprize.org/sites/default/files/xprize-logo.svg",
+            "banner_url": "https://www.xprize.org/sites/default/files/carbon-removal-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440004",
+            "title": "XPRIZE Quantum Applications",
+            "organization": "XPRIZE Foundation",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "$5,000,000",
+            "application_link": "https://www.xprize.org/prizes/qc-applications",
+            "application_deadline": "2026-12-31",
+            "duration": "3 years",
+            "prerequisites": [
+                "Quantum computing",
+                "Algorithm design",
+                "Computer science",
+                "Mathematics"
+            ],
+            "brief_overview": "Generate quantum algorithms solving real-world problems. $5M prize for practical quantum computing applications.",
+            "tags": [
+                "Quantum Computing",
+                "Algorithms",
+                "Innovation",
+                "5M Prize",
+                "Technology"
+            ],
+            "website_url": "https://www.xprize.org/prizes/qc-applications",
+            "logo_url": "https://www.xprize.org/sites/default/files/xprize-logo.svg",
+            "banner_url": "https://www.xprize.org/sites/default/files/quantum-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440005",
+            "title": "James Dyson Award 2026",
+            "organization": "James Dyson Foundation",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": "28 countries including India",
+            "cost_type": "Free",
+            "stipend_prize": "£30,000 (International Winner), £5,000 (National Winners)",
+            "application_link": "https://www.jamesdysonaward.org/en-IN/",
+            "application_deadline": "2026-07-17",
+            "duration": "March to November 2026",
+            "prerequisites": [
+                "Design engineering",
+                "Problem solving",
+                "Innovation",
+                "Student or recent graduate"
+            ],
+            "brief_overview": "International design competition. Design something that solves a problem. £30,000 for global winner. Open to design and engineering students.",
+            "tags": [
+                "Design",
+                "Engineering",
+                "Innovation",
+                "Student Competition",
+                "International"
+            ],
+            "website_url": "https://www.jamesdysonaward.org/en-IN/",
+            "logo_url": "https://www.jamesdysonaward.org/content/dam/awards/design/james-dyson-award-logo.svg",
+            "banner_url": "https://www.jamesdysonaward.org/content/dam/awards/design/jda-hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440006",
+            "title": "Shell Eco-marathon 2026",
+            "organization": "Shell",
+            "category": "Competition",
+            "mode": "On-site",
+            "location": "Qatar, USA, Poland, Brazil",
+            "cost_type": "Free",
+            "stipend_prize": "Awards and recognition per energy class",
+            "application_link": "https://www.shell.com/energy-and-innovation/shell-ecomarathon.html",
+            "application_deadline": "2026-01-15",
+            "duration": "Year-round with regional events",
+            "prerequisites": [
+                "Engineering",
+                "Energy efficiency",
+                "Vehicle design",
+                "Team collaboration"
+            ],
+            "brief_overview": "40+ years of student engineering competition. Build super energy-efficient vehicles. Mileage challenge and autonomous driving competition.",
+            "tags": [
+                "Energy",
+                "Engineering",
+                "Sustainability",
+                "Automotive",
+                "Student Teams"
+            ],
+            "website_url": "https://www.shell.com/energy-and-innovation/shell-ecomarathon.html",
+            "logo_url": "https://www.shell.com/energy-and-innovation/shell-ecomarathon/_jcr_content/root/main/section/simple/image.img.960.jpeg",
+            "banner_url": "https://www.shell.com/energy-and-innovation/shell-ecomarathon/_jcr_content/root/main/section/hero.img.1536.jpeg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440007",
+            "title": "Microsoft Imagine Cup 2026",
+            "organization": "Microsoft Corporation",
+            "category": "Competition",
+            "mode": "Hybrid",
+            "location": "Redmond, WA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "$100,000+ in prizes + Azure credits up to $5,000",
+            "application_link": "https://imaginecup.microsoft.com",
+            "application_deadline": "2026-04-30",
+            "duration": "October 2025 to June 2026",
+            "prerequisites": [
+                "Azure development",
+                "AI/ML",
+                "Gaming or Mixed Reality",
+                "Age 16+"
+            ],
+            "brief_overview": "Premier global student tech competition. 20+ years empowering innovation. Build projects with Microsoft technologies solving world's challenges.",
+            "tags": [
+                "Microsoft",
+                "AI",
+                "Gaming",
+                "Mixed Reality",
+                "Student Competition"
+            ],
+            "website_url": "https://imaginecup.microsoft.com",
+            "logo_url": "https://imaginecup.microsoft.com/assets/images/ic-logo.svg",
+            "banner_url": "https://imaginecup.microsoft.com/assets/images/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440008",
+            "title": "iGEM Competition 2026",
+            "organization": "iGEM Foundation",
+            "category": "Competition",
+            "mode": "On-site",
+            "location": "Paris, France",
+            "cost_type": "Paid",
+            "stipend_prize": "Awards and recognition. Registration fees apply per team.",
+            "application_link": "https://igem.org",
+            "application_deadline": "2026-05-31",
+            "duration": "May to November 2026",
+            "prerequisites": [
+                "Synthetic biology",
+                "Bioengineering",
+                "Lab skills",
+                "Team collaboration"
+            ],
+            "brief_overview": "World's premiere synthetic biology competition. Design and build biological systems using standardized parts. Giant Jamboree in Paris.",
+            "tags": [
+                "Synthetic Biology",
+                "Bioengineering",
+                "Innovation",
+                "International",
+                "STEM"
+            ],
+            "website_url": "https://igem.org",
+            "logo_url": "https://static.igem.org/websites/2023/dist/img/logos/igem-logo.svg",
+            "banner_url": "https://static.igem.org/websites/2023/dist/img/competition-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440009",
+            "title": "Breakthrough Junior Challenge 2026",
+            "organization": "Breakthrough Prize Foundation",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "$250,000 scholarship + $50,000 lab for winner's school",
+            "application_link": "https://breakthroughjuniorchallenge.org",
+            "application_deadline": "2026-06-30",
+            "duration": "Annual competition",
+            "prerequisites": [
+                "Science communication",
+                "Video creation",
+                "Ages 13-18",
+                "Scientific knowledge"
+            ],
+            "brief_overview": "Create original video explaining complex scientific concept. $250K college scholarship for winner. $50K lab for school. Ages 13-18.",
+            "tags": [
+                "Science Communication",
+                "Video",
+                "Scholarship",
+                "Youth",
+                "STEM"
+            ],
+            "website_url": "https://breakthroughjuniorchallenge.org",
+            "logo_url": "https://breakthroughjuniorchallenge.org/img/bjc-logo.png",
+            "banner_url": "https://breakthroughjuniorchallenge.org/img/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440010",
+            "title": "MIT HackMIT 2026",
+            "organization": "Massachusetts Institute of Technology",
+            "category": "Hackathon",
+            "mode": "On-site",
+            "location": "Cambridge, MA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "Travel reimbursement available",
+            "application_link": "https://hackmit.org",
+            "application_deadline": "2026-08-15",
+            "duration": "36 hours",
+            "prerequisites": [
+                "Programming",
+                "Problem solving",
+                "Teamwork",
+                "Creativity"
+            ],
+            "brief_overview": "MIT's premier hackathon. Travel reimbursement available. Build innovative tech solutions with brilliant minds in 36 hours.",
+            "tags": [
+                "MIT",
+                "Hackathon",
+                "Travel Support",
+                "Innovation",
+                "36 Hours"
+            ],
+            "website_url": "https://hackmit.org",
+            "logo_url": "https://hackmit.org/assets/logos/hackmit-logo.svg",
+            "banner_url": "https://hackmit.org/assets/images/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440011",
+            "title": "Stanford TreeHacks 2026",
+            "organization": "Stanford University",
+            "category": "Hackathon",
+            "mode": "On-site",
+            "location": "Stanford, CA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "Up to $600 travel reimbursement",
+            "application_link": "https://www.treehacks.com",
+            "application_deadline": "2026-01-15",
+            "duration": "36 hours",
+            "prerequisites": [
+                "Coding",
+                "Design",
+                "Hardware",
+                "Entrepreneurship"
+            ],
+            "brief_overview": "Stanford's premier hackathon with $600 travel support. Innovate with Stanford's brightest minds. Coding, hardware, and design tracks.",
+            "tags": [
+                "Stanford",
+                "Hackathon",
+                "Travel Support",
+                "West Coast",
+                "Innovation"
+            ],
+            "website_url": "https://www.treehacks.com",
+            "logo_url": "https://www.treehacks.com/static/media/logo.svg",
+            "banner_url": "https://www.treehacks.com/static/media/hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440012",
+            "title": "UC Berkeley Cal Hacks 2026",
+            "organization": "University of California, Berkeley",
+            "category": "Hackathon",
+            "mode": "On-site",
+            "location": "Berkeley, CA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "Travel reimbursement available",
+            "application_link": "https://calhacks.io",
+            "application_deadline": "2026-09-15",
+            "duration": "36 hours",
+            "prerequisites": [
+                "Programming",
+                "Innovation",
+                "Collaboration",
+                "Passion"
+            ],
+            "brief_overview": "Berkeley's largest hackathon. Build innovative projects with top students. Multiple tracks and prizes. Bay Area location.",
+            "tags": [
+                "UC Berkeley",
+                "Hackathon",
+                "Bay Area",
+                "Innovation",
+                "Students"
+            ],
+            "website_url": "https://calhacks.io",
+            "logo_url": "https://calhacks.io/assets/logo.svg",
+            "banner_url": "https://calhacks.io/assets/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440013",
+            "title": "Smart India Hackathon 2026",
+            "organization": "Ministry of Education, Government of India",
+            "category": "Hackathon",
+            "mode": "On-site",
+            "location": "Multiple cities across India",
+            "cost_type": "Free",
+            "stipend_prize": "₹1,00,000 per problem statement",
+            "application_link": "https://www.sih.gov.in",
+            "application_deadline": "2026-07-31",
+            "duration": "36 hours",
+            "prerequisites": [
+                "Problem solving",
+                "Coding",
+                "Innovation",
+                "Team of 6 members"
+            ],
+            "brief_overview": "India's biggest hackathon. ₹1 lakh prize per problem. Solve real-world challenges for government ministries. Team of 6 students.",
+            "tags": [
+                "Government",
+                "India",
+                "National Hackathon",
+                "Prize Money",
+                "Innovation"
+            ],
+            "website_url": "https://www.sih.gov.in",
+            "logo_url": "https://www.sih.gov.in/img1/SIH2023-logo.png",
+            "banner_url": "https://www.sih.gov.in/img1/sih-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440014",
+            "title": "Harvard HackHarvard 2026",
+            "organization": "Harvard University",
+            "category": "Hackathon",
+            "mode": "On-site",
+            "location": "Cambridge, MA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "Travel reimbursement available",
+            "application_link": "https://hackharvard.io",
+            "application_deadline": "2026-09-30",
+            "duration": "36 hours",
+            "prerequisites": [
+                "Programming",
+                "Innovation",
+                "Teamwork",
+                "Problem solving"
+            ],
+            "brief_overview": "Harvard's premier hackathon with travel support. Build cutting-edge projects at Ivy League campus. Multiple prizes and tracks.",
+            "tags": [
+                "Harvard",
+                "Hackathon",
+                "Ivy League",
+                "Travel Support",
+                "Innovation"
+            ],
+            "website_url": "https://hackharvard.io",
+            "logo_url": "https://hackharvard.io/assets/logo.svg",
+            "banner_url": "https://hackharvard.io/assets/hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440015",
+            "title": "ETHGlobal Hackathons 2026",
+            "organization": "ETHGlobal",
+            "category": "Hackathon",
+            "mode": "Hybrid",
+            "location": "Multiple cities worldwide",
+            "cost_type": "Free",
+            "stipend_prize": "$100,000+ prize pools per event",
+            "application_link": "https://ethglobal.com",
+            "application_deadline": null,
+            "duration": "36-48 hours per event",
+            "prerequisites": [
+                "Blockchain",
+                "Ethereum",
+                "Smart contracts",
+                "Solidity"
+            ],
+            "brief_overview": "Multiple blockchain hackathons worldwide. $100K+ prizes per event. Build on Ethereum ecosystem with global Web3 community.",
+            "tags": [
+                "Blockchain",
+                "Ethereum",
+                "Crypto",
+                "Global",
+                "Large Prizes"
+            ],
+            "website_url": "https://ethglobal.com",
+            "logo_url": "https://ethglobal.com/assets/logo.svg",
+            "banner_url": "https://ethglobal.com/assets/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440016",
+            "title": "Amazon ML Summer School 2026",
+            "organization": "Amazon Science",
+            "category": "Summer Program",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "Internship opportunities up to ₹1.5 Lakh/month + PPO up to 51 LPA",
+            "application_link": "https://xathon.mettl.com/amazonmlsummerschool",
+            "application_deadline": "2026-07-31",
+            "duration": "6 days (3 weekends)",
+            "prerequisites": [
+                "ML fundamentals",
+                "Python",
+                "Statistics",
+                "Linear Algebra"
+            ],
+            "brief_overview": "FREE ML course by Amazon Scientists. Gateway to Amazon internships up to ₹1.5L/month. Pathways to 51 LPA PPO. 5th edition.",
+            "tags": [
+                "Amazon",
+                "Machine Learning",
+                "Free",
+                "Virtual",
+                "Career Pipeline"
+            ],
+            "website_url": "https://xathon.mettl.com/amazonmlsummerschool",
+            "logo_url": "https://m.media-amazon.com/images/G/01/amazon_science/Amazon_Science_Logo.png",
+            "banner_url": "https://m.media-amazon.com/images/G/01/amazon_science/ML_Summer_School_Banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440017",
+            "title": "Google Summer of Code 2026",
+            "organization": "Google LLC",
+            "category": "Summer Program",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "$1,500-$6,600 based on project length",
+            "application_link": "https://summerofcode.withgoogle.com",
+            "application_deadline": "2026-04-08",
+            "duration": "12+ weeks (May-August)",
+            "prerequisites": [
+                "Open source contribution",
+                "Git",
+                "Programming",
+                "Age 18+"
+            ],
+            "brief_overview": "Contribute to 1,000+ open source organizations. $1,500-$6,600 stipend. Mentorship from experienced developers. Global remote program.",
+            "tags": [
+                "Google",
+                "Open Source",
+                "Stipend",
+                "Mentorship",
+                "Global"
+            ],
+            "website_url": "https://summerofcode.withgoogle.com",
+            "logo_url": "https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-logo-horizontal.svg",
+            "banner_url": "https://developers.google.com/open-source/gsoc/images/gsoc-hero.png",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440018",
+            "title": "Microsoft Research Data Science Summer School 2026",
+            "organization": "Microsoft Research",
+            "category": "Summer Program",
+            "mode": "On-site",
+            "location": "Redmond, WA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "Stipend + travel + accommodation + meals covered",
+            "application_link": "https://www.microsoft.com/en-us/research/academic-program/data-science-summer-school/",
+            "application_deadline": "2026-04-15",
+            "duration": "4 weeks (May-June)",
+            "prerequisites": [
+                "Data science",
+                "Statistics",
+                "Programming",
+                "Undergraduate student"
+            ],
+            "brief_overview": "Intensive program at MSR Redmond campus. Work with Microsoft researchers. Lectures, projects, and mentorship. All expenses covered.",
+            "tags": [
+                "Microsoft",
+                "Data Science",
+                "Fully Funded",
+                "Research",
+                "USA"
+            ],
+            "website_url": "https://www.microsoft.com/en-us/research/academic-program/data-science-summer-school/",
+            "logo_url": "https://www.microsoft.com/en-us/research/wp-content/themes/microsoft-research-theme/assets/images/msr-logo.svg",
+            "banner_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/dsss-hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440019",
+            "title": "IIT Kanpur SURGE 2026",
+            "organization": "Indian Institute of Technology Kanpur",
+            "category": "Summer Program",
+            "mode": "On-site",
+            "location": "Kanpur, India",
+            "cost_type": "Paid",
+            "stipend_prize": "Stipend provided. Accommodation charges apply separately.",
+            "application_link": "https://surge.iitk.ac.in",
+            "application_deadline": "2026-04-30",
+            "duration": "8 weeks (May-July)",
+            "prerequisites": [
+                "Strong academics",
+                "Research interest",
+                "Faculty mentor consent"
+            ],
+            "brief_overview": "8-week undergraduate research at IIT Kanpur. Stipend provided. Experience academic atmosphere. Work with faculty mentor on research projects.",
+            "tags": [
+                "IIT",
+                "Research",
+                "Stipend",
+                "Summer",
+                "India"
+            ],
+            "website_url": "https://www.iitk.ac.in",
+            "logo_url": "https://www.iitk.ac.in/new/data/iitk-logo.png",
+            "banner_url": "https://surge.iitk.ac.in/images/surge-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440020",
+            "title": "IIITDM Jabalpur Summer School on Deep Learning 2026",
+            "organization": "IIITDM Jabalpur",
+            "category": "Summer Program",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Paid",
+            "stipend_prize": "Certificate of completion. Registration fee applies.",
+            "application_link": "https://deeplearn-summerschool.in",
+            "application_deadline": "2026-03-20",
+            "duration": "1 month (May-June)",
+            "prerequisites": [
+                "ML basics",
+                "Python",
+                "Mathematics for ML",
+                "Programming"
+            ],
+            "brief_overview": "1-month online deep learning course. 35+ speakers from IITs/NITs. 2hrs theory + 2hrs practice daily. CNNs, RNNs, GANs, Transformers, LLMs.",
+            "tags": [
+                "Deep Learning",
+                "Virtual",
+                "India",
+                "Certificate",
+                "Affordable"
+            ],
+            "website_url": "https://deeplearn-summerschool.in",
+            "logo_url": "https://www.iiitdmj.ac.in/academics/img/logo.png",
+            "banner_url": "https://deeplearn-summerschool.in/images/ssdl-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440021",
+            "title": "Oxford Machine Learning Summer School 2026",
+            "organization": "AI for Global Goals",
+            "category": "Summer Program",
+            "mode": "Hybrid",
+            "location": "Oxford, UK",
+            "cost_type": "Paid",
+            "stipend_prize": "Financial aid available for underrepresented groups. Fees vary by track.",
+            "application_link": "https://www.oxfordml.school",
+            "application_deadline": "2026-06-30",
+            "duration": "8 days (2 courses in August)",
+            "prerequisites": [
+                "ML knowledge",
+                "Mathematics",
+                "Programming",
+                "Research interest"
+            ],
+            "brief_overview": "World's largest advanced AI bootcamp. 5,000+ trained since 2020. 50% underrepresented groups. In-person at Oxford + Online option.",
+            "tags": [
+                "Oxford",
+                "Machine Learning",
+                "International",
+                "Prestigious",
+                "AI"
+            ],
+            "website_url": "https://www.oxfordml.school",
+            "logo_url": "https://www.oxfordml.school/assets/logo.svg",
+            "banner_url": "https://www.oxfordml.school/assets/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440022",
+            "title": "Eastern European Machine Learning Summer School 2026",
+            "organization": "EEML",
+            "category": "Summer Program",
+            "mode": "On-site",
+            "location": "Eastern Europe",
+            "cost_type": "Paid",
+            "stipend_prize": "€80-400 fee. Travel grants available for need-based applicants.",
+            "application_link": "https://www.eeml.eu",
+            "application_deadline": "2026-03-31",
+            "duration": "6 days (July)",
+            "prerequisites": [
+                "ML fundamentals",
+                "Mathematics",
+                "Programming",
+                "Research interest"
+            ],
+            "brief_overview": "Intensive ML summer school. Travel grants for need-based applicants. Top researchers leading tutorials. Foundation models and trustworthy AI.",
+            "tags": [
+                "Machine Learning",
+                "Europe",
+                "Financial Aid",
+                "Research",
+                "Summer School"
+            ],
+            "website_url": "https://www.eeml.eu",
+            "logo_url": "https://www.eeml.eu/assets/logo.png",
+            "banner_url": "https://www.eeml.eu/assets/hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440023",
+            "title": "S.N. Bose Scholars Program 2026",
+            "organization": "Indo-US Science and Technology Forum",
+            "category": "Internship",
+            "mode": "On-site",
+            "location": "USA (MIT, Stanford, UC Berkeley, Princeton, etc.)",
+            "cost_type": "Free",
+            "stipend_prize": "$2,000 stipend + round-trip airfare + health insurance",
+            "application_link": "https://www.iusstf.org/program/sn-bose-scholars-program",
+            "application_deadline": "2025-10-31",
+            "duration": "10-12 weeks (May-July 2026)",
+            "prerequisites": [
+                "CGPA 8.0+",
+                "Engineering/Science major",
+                "1+ year remaining in degree"
+            ],
+            "brief_overview": "50 Indian students intern at top US universities. $2K stipend, full airfare, insurance. Prestigious exchange program with MIT, Stanford, Berkeley.",
+            "tags": [
+                "USA",
+                "Fully Funded",
+                "Prestigious",
+                "STEM",
+                "Research"
+            ],
+            "website_url": "https://www.iusstf.org/program/sn-bose-scholars-program",
+            "logo_url": "https://www.iusstf.org/images/iusstf-logo.png",
+            "banner_url": "https://www.iusstf.org/images/bose-scholars-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440024",
+            "title": "IUSSTF-Viterbi Program 2026",
+            "organization": "Indo-US Science and Technology Forum & USC Viterbi",
+            "category": "Internship",
+            "mode": "On-site",
+            "location": "Los Angeles, CA, USA",
+            "cost_type": "Free",
+            "stipend_prize": "8-week stipend + round-trip airfare + health insurance + housing assistance",
+            "application_link": "https://www.iusstf.org/program/iusstf-viterbi-program",
+            "application_deadline": "2025-11-30",
+            "duration": "8 weeks (Summer 2026)",
+            "prerequisites": [
+                "CGPA 8.5+",
+                "EE/ECE/CS/Computational Sciences",
+                "Graduating May 2026 or later"
+            ],
+            "brief_overview": "Research at USC Viterbi School of Engineering. Fully funded. AI/ML, robotics, cybersecurity. Work with world-class faculty. All expenses covered.",
+            "tags": [
+                "USA",
+                "USC",
+                "Fully Funded",
+                "AI/ML",
+                "Research"
+            ],
+            "website_url": "https://www.iusstf.org/program/iusstf-viterbi-program",
+            "logo_url": "https://viterbischool.usc.edu/wp-content/uploads/2020/10/Viterbi-Logo.png",
+            "banner_url": "https://viterbischool.usc.edu/wp-content/uploads/2021/05/viterbi-hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440025",
+            "title": "CALTECH SURF 2026",
+            "organization": "California Institute of Technology",
+            "category": "Summer Program",
+            "mode": "On-site",
+            "location": "Pasadena, CA, USA",
+            "cost_type": "Paid",
+            "stipend_prize": "$8,110 for 10 weeks. $19 application fee.",
+            "application_link": "https://www.surf.caltech.edu",
+            "application_deadline": "2026-02-22",
+            "duration": "10 weeks (June-August)",
+            "prerequisites": [
+                "Minimum 2.5 GPA",
+                "2+ semesters completed",
+                "STEM field"
+            ],
+            "brief_overview": "Research at Caltech. $8,110 stipend. Access to NASA JPL and Keck Observatory. 300+ students from 40+ countries. Established 1979.",
+            "tags": [
+                "Caltech",
+                "Research",
+                "High Stipend",
+                "Prestigious",
+                "USA"
+            ],
+            "website_url": "https://www.caltech.edu",
+            "logo_url": "https://www.caltech.edu/images/caltech-logo.svg",
+            "banner_url": "https://www.surf.caltech.edu/images/surf-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440026",
+            "title": "CERN Summer Student Programme 2026",
+            "organization": "European Organization for Nuclear Research",
+            "category": "Summer Program",
+            "mode": "On-site",
+            "location": "Geneva, Switzerland",
+            "cost_type": "Free",
+            "stipend_prize": "Monthly stipend + travel allowance + accommodation + meals + health insurance",
+            "application_link": "https://home.cern/summer-student-programme",
+            "application_deadline": "2026-01-31",
+            "duration": "8-13 weeks (June-August)",
+            "prerequisites": [
+                "Physics/Engineering/CS/Math",
+                "3+ years university",
+                "English proficiency"
+            ],
+            "brief_overview": "World's premier particle physics laboratory. 341 students from 100+ countries. Fully funded. Lectures by top researchers. Visit accelerators.",
+            "tags": [
+                "CERN",
+                "Physics",
+                "Europe",
+                "Fully Funded",
+                "Prestigious"
+            ],
+            "website_url": "https://home.cern",
+            "logo_url": "https://home.cern/sites/default/files/image/update-for/2018/12/cern-logo.png",
+            "banner_url": "https://home.cern/sites/default/files/image/featured/2023/06/summer-students-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440027",
+            "title": "NUS IRIS 2026",
+            "organization": "National University of Singapore",
+            "category": "Internship",
+            "mode": "On-site",
+            "location": "Singapore",
+            "cost_type": "Free",
+            "stipend_prize": "S$1,200/month + S$600 travel allowance + free on-campus housing + certificate",
+            "application_link": "https://www.nus.edu.sg/iris",
+            "application_deadline": "2026-03-05",
+            "duration": "2 months (June-July)",
+            "prerequisites": [
+                "Minimum 3.5 GPA",
+                "2+ years completed",
+                "Research interest"
+            ],
+            "brief_overview": "Research at NUS Graduate School. S$1,200 stipend, free housing, S$600 travel. Close mentorship by professors. State-of-the-art labs.",
+            "tags": [
+                "Singapore",
+                "Research",
+                "Funded",
+                "Asia",
+                "Top University"
+            ],
+            "website_url": "https://www.nus.edu.sg/iris",
+            "logo_url": "https://www.nus.edu.sg/images/default-source/base/logo.png",
+            "banner_url": "https://www.nus.edu.sg/iris/images/iris-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440028",
+            "title": "NUS SoC Summer Research Internship 2026",
+            "organization": "National University of Singapore - School of Computing",
+            "category": "Internship",
+            "mode": "On-site",
+            "location": "Singapore",
+            "cost_type": "Free",
+            "stipend_prize": "SGD $500/week (SGD $5,000 total for 10 weeks)",
+            "application_link": "https://www.comp.nus.edu.sg/programmes/pg/sri/",
+            "application_deadline": "2026-01-31",
+            "duration": "10 weeks (May-July)",
+            "prerequisites": [
+                "Computer Science major",
+                "Strong academics",
+                "Research interest"
+            ],
+            "brief_overview": "Work with top CS faculty at NUS. SGD $5,000 stipend. AI/ML, computer vision, NLP, cybersecurity. Seminars and networking. Priority to underrepresented.",
+            "tags": [
+                "Singapore",
+                "Computer Science",
+                "Research",
+                "High Stipend",
+                "AI/ML"
+            ],
+            "website_url": "https://www.comp.nus.edu.sg/programmes/pg/sri/",
+            "logo_url": "https://www.comp.nus.edu.sg/images/soc-logo.png",
+            "banner_url": "https://www.comp.nus.edu.sg/images/sri-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440029",
+            "title": "France Excellence Charpak Lab Scholarship 2026",
+            "organization": "Embassy of France in India",
+            "category": "Internship",
+            "mode": "On-site",
+            "location": "France",
+            "cost_type": "Free",
+            "stipend_prize": "€700/month (maximum 2 months) + visa fee waiver + social security",
+            "application_link": "https://www.inde.campusfrance.org",
+            "application_deadline": "2026-02-28",
+            "duration": "1-2 months (May-July preferred)",
+            "prerequisites": [
+                "Indian national or OCI",
+                "Lab invitation from French institution"
+            ],
+            "brief_overview": "Short-term lab internships at French universities. €700/month, visa waiver, social security. Priority access to student residences.",
+            "tags": [
+                "France",
+                "Research",
+                "Europe",
+                "Funded",
+                "Lab Internship"
+            ],
+            "website_url": "https://www.inde.campusfrance.org",
+            "logo_url": "https://www.campusfrance.org/sites/default/files/medias/images/logo-cf.svg",
+            "banner_url": "https://www.inde.campusfrance.org/sites/default/files/charpak-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440030",
+            "title": "IEEE AP-S Student Design Contest 2026",
+            "organization": "IEEE Antennas and Propagation Society",
+            "category": "Competition",
+            "mode": "On-site",
+            "location": "Detroit, MI, USA",
+            "cost_type": "Free",
+            "stipend_prize": "$1,500 (1st place) + travel funds for finalists",
+            "application_link": "https://2026apsursi.org/student-design-contest/",
+            "application_deadline": "2025-12-09",
+            "duration": "Proposal Dec 2025, Final May 2026, Competition July 2026",
+            "prerequisites": [
+                "Antenna design",
+                "RF engineering",
+                "Team of 3-10 members"
+            ],
+            "brief_overview": "Focus on Automotive Antennas. $1,500 prize plus travel. Present at IEEE APS conference. Team competition with proposal and final submission.",
+            "tags": [
+                "IEEE",
+                "Antenna Design",
+                "RF",
+                "Student Competition",
+                "USA"
+            ],
+            "website_url": "https://2026apsursi.org/student-design-contest/",
+            "logo_url": "https://ieeeaps.org/assets/img/aps-logo.png",
+            "banner_url": "https://2026apsursi.org/images/sdc-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440031",
+            "title": "Spaceport America Cup 2026",
+            "organization": "Experimental Sounding Rocket Association",
+            "category": "Competition",
+            "mode": "On-site",
+            "location": "New Mexico, USA",
+            "cost_type": "Paid",
+            "stipend_prize": "Awards and recognition. Team registration fee required.",
+            "application_link": "https://www.spaceportamericacup.com",
+            "application_deadline": "2026-03-31",
+            "duration": "June 2026 event",
+            "prerequisites": [
+                "Rocket design",
+                "Engineering",
+                "Aerospace knowledge",
+                "Team collaboration"
+            ],
+            "brief_overview": "World's largest intercollegiate rocket competition. Launch student-built rockets in New Mexico. Multiple categories and altitude targets.",
+            "tags": [
+                "Aerospace",
+                "Rockets",
+                "Engineering",
+                "Competition",
+                "USA"
+            ],
+            "website_url": "https://www.spaceportamericacup.com",
+            "logo_url": "https://www.spaceportamericacup.com/images/sa-cup-logo.png",
+            "banner_url": "https://www.spaceportamericacup.com/images/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440032",
+            "title": "Kaggle Competitions",
+            "organization": "Kaggle (Google)",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "$10,000-$1,000,000+ per competition",
+            "application_link": "https://www.kaggle.com/competitions",
+            "application_deadline": null,
+            "duration": "Ongoing with multiple concurrent competitions",
+            "prerequisites": [
+                "Machine Learning",
+                "Data Science",
+                "Python/R",
+                "Statistics"
+            ],
+            "brief_overview": "World's largest ML competition platform. Multiple concurrent competitions. $10K-$1M prizes. Essential for building data science portfolio. Ranking system.",
+            "tags": [
+                "Machine Learning",
+                "Data Science",
+                "Kaggle",
+                "Ongoing",
+                "Portfolio"
+            ],
+            "website_url": "https://www.kaggle.com/competitions",
+            "logo_url": "https://www.kaggle.com/static/images/site-logo.svg",
+            "banner_url": "https://www.kaggle.com/static/images/competitions-hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440033",
+            "title": "TCS CodeVita Season 13",
+            "organization": "Tata Consultancy Services",
+            "category": "Hiring Challenge",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "Cash prizes + interview opportunities at TCS",
+            "application_link": "https://www.tcscodevita.com",
+            "application_deadline": "2026-03-31",
+            "duration": "Multi-round competition (Q4 2025 - Q1 2026)",
+            "prerequisites": [
+                "Competitive programming",
+                "DSA",
+                "Problem solving",
+                "Coding"
+            ],
+            "brief_overview": "TCS's global coding competition. Multi-round format. Winners get cash prizes and direct interview opportunities. For 2026-2028 graduates.",
+            "tags": [
+                "TCS",
+                "Coding Competition",
+                "Job Opportunities",
+                "India",
+                "Global"
+            ],
+            "website_url": "https://www.tcscodevita.com",
+            "logo_url": "https://www.tcscodevita.com/images/tcs-codevita-logo.png",
+            "banner_url": "https://www.tcscodevita.com/images/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440034",
+            "title": "Flipkart GRiD 7.0",
+            "organization": "Flipkart",
+            "category": "Hiring Challenge",
+            "mode": "Hybrid",
+            "location": "Bangalore, India",
+            "cost_type": "Free",
+            "stipend_prize": "₹1,00,000/month internship stipend",
+            "application_link": "https://unstop.com/o/flipkart-grid",
+            "application_deadline": "2026-06-30",
+            "duration": "Multi-stage competition (ongoing for 2026-2028 batches)",
+            "prerequisites": [
+                "Software development",
+                "Problem solving",
+                "Innovation",
+                "Technical skills"
+            ],
+            "brief_overview": "Flipkart's flagship hiring challenge. ₹1 lakh/month internship. Multi-stage competition. For 2026-2028 graduates. Finals in Bangalore.",
+            "tags": [
+                "Flipkart",
+                "Hiring",
+                "High Stipend",
+                "India",
+                "Innovation"
+            ],
+            "website_url": "https://unstop.com/o/flipkart-grid",
+            "logo_url": "https://logos-world.net/wp-content/uploads/2020/11/Flipkart-Logo.png",
+            "banner_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/banner/flipkart-grid.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440035",
+            "title": "MIT Zero Robotics 2026",
+            "organization": "Massachusetts Institute of Technology",
+            "category": "Competition",
+            "mode": "Hybrid",
+            "location": "MIT, Cambridge, MA (Finals)",
+            "cost_type": "Free",
+            "stipend_prize": "Awards and recognition. Finals at MIT.",
+            "application_link": "https://zerorobotics.mit.edu",
+            "application_deadline": "2026-01-30",
+            "duration": "Fall 2025 - February 2026",
+            "prerequisites": [
+                "Programming",
+                "Robotics",
+                "Space science",
+                "Teamwork"
+            ],
+            "brief_overview": "Program satellites aboard International Space Station. Virtual competition with finals at MIT. Code runs in space. High school and college levels.",
+            "tags": [
+                "MIT",
+                "Robotics",
+                "Space",
+                "ISS",
+                "Competition"
+            ],
+            "website_url": "https://zerorobotics.mit.edu",
+            "logo_url": "https://zerorobotics.mit.edu/images/zr-logo.png",
+            "banner_url": "https://zerorobotics.mit.edu/images/hero-banner.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440036",
+            "title": "NeurIPS Competition Track 2026",
+            "organization": "Neural Information Processing Systems Foundation",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "Prizes vary by competition (typically $5,000-$50,000)",
+            "application_link": "https://neurips.cc/Conferences/2026/CompetitionTrack",
+            "application_deadline": "2026-07-31",
+            "duration": "July-December 2026",
+            "prerequisites": [
+                "Machine Learning",
+                "Deep Learning",
+                "Research experience",
+                "Python"
+            ],
+            "brief_overview": "ML research challenges at world's top AI conference. Multiple competitions annually. Winners present at NeurIPS. Highly prestigious.",
+            "tags": [
+                "NeurIPS",
+                "AI Research",
+                "Machine Learning",
+                "Prestigious",
+                "Academic"
+            ],
+            "website_url": "https://neurips.cc",
+            "logo_url": "https://neurips.cc/static/core/img/NeurIPS-logo.svg",
+            "banner_url": "https://neurips.cc/static/core/img/neurips-hero.jpg",
+            "is_verified": true
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440037",
+            "title": "Google Solution Challenge 2026",
+            "organization": "Google Developer Student Clubs",
+            "category": "Competition",
+            "mode": "Virtual",
+            "location": null,
+            "cost_type": "Free",
+            "stipend_prize": "$3,000 (top 10 teams), $1,000 (next 100 teams)",
+            "application_link": "https://developers.google.com/community/gdsc-solution-challenge",
+            "application_deadline": "2026-03-31",
+            "duration": "January-April 2026",
+            "prerequisites": [
+                "Google Cloud",
+                "Firebase",
+                "Android",
+                "Flutter",
+                "TensorFlow"
+            ],
+            "brief_overview": "Build solutions for UN SDGs using Google technologies. $3K for top 10, $1K for next 100. University students through GDSC chapters worldwide.",
+            "tags": [
+                "Google",
+                "GDSC",
+                "UN SDGs",
+                "Student",
+                "Global"
+            ],
+            "website_url": "https://developers.google.com/community/gdsc-solution-challenge",
+            "logo_url": "https://developers.google.com/community/gdsc/images/gdsc-logo.svg",
+            "banner_url": "https://developers.google.com/community/gdsc/images/solution-challenge-hero.jpg",
+            "is_verified": true
+        }
+    ]
+}
