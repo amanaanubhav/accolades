@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next';
-import { DetailView } from '@/features/opportunities/DetailView';
+import { DetailView } from '@/features/opportunities/component/DetailView';
 import { generateOpportunityMetadata } from '@/features/opportunities/utils/seo';
 
 interface PageProps {

@@ -3,8 +3,8 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { SearchInput } from '@/components/ui/Input';
-import { CategoryFilter, QuickFilters } from '@/components/features/filters/CategoryFilter';
-import { OpportunityGrid } from '@/components/features/grid/OpportunityGrid';
+import { CategoryFilter, QuickFilters } from '@/features/opportunities/components/CategoryFilter';
+import { OpportunityGrid } from '@/features/opportunities/components/OpportunityGrid';
 import { useFilter } from '@/hooks/useFilter';
 import { useOpportunities } from '@/hooks/useOpportunities';
 
@@ -147,7 +147,7 @@ function LoadingFallback() {
 /**
  * Home Page with Suspense boundary
  */
-export function HomePage() {
+export default function HomePage() {
     return (
         <Suspense fallback={<LoadingFallback />}>
             <HomeContent />

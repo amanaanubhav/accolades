@@ -1,4 +1,4 @@
-import { CatalogView } from '@/features/opportunities/CatalogView';
+import { CatalogView } from '@/features/opportunities/component/CatalogView';
 
 export const metadata = {
     title: 'Explore Opportunities | Accolades',
