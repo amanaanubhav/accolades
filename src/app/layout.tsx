@@ -1,52 +1,31 @@
-/**
- * Opp-Portal Root Layout
- * 
- * Global layout with metallic theme, fonts, and navigation.
- */
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "@/styles/globals.css";
+// Adjust import path to relative if needed or use alias if configured. 
+// Assuming @ points to src
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import '@/styles/globals.css';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: 'Opp-Portal | Student Opportunities Dashboard',
-    description:
-        'Discover hackathons, internships, and hiring challenges. A unified platform for student opportunities.',
-    keywords: ['hackathons', 'internships', 'coding challenges', 'student opportunities'],
-    authors: [{ name: 'Opp-Portal' }],
-    openGraph: {
-        title: 'Opp-Portal | Student Opportunities Dashboard',
-        description:
-            'Discover hackathons, internships, and hiring challenges. A unified platform for student opportunities.',
-        type: 'website',
-    },
+    title: "Accolades | Opp-Portal",
+    description: "Futuristic Opportunity Discovery",
 };
 
 export default function RootLayout({
     children,
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
+}) {
     return (
         <html lang="en" className="dark">
-            <body
-                className={`${inter.variable} font-sans antialiased bg-[var(--color-void)] text-[var(--color-platinum)] min-h-screen`}
-            >
-                {/* Navigation */}
+            <body className={`${inter.className} bg-black text-white antialiased`}>
+                {/* Navbar is now logically linked to all routes */}
                 <Navbar />
-
-                {/* Main content with top padding for fixed navbar */}
-                <main className="pt-24">{children}</main>
-
-                {/* Footer */}
+                <div className="min-h-screen">
+                    {children}
+                </div>
                 <Footer />
             </body>
         </html>
