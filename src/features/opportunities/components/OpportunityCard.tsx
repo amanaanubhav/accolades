@@ -1,190 +1,135 @@
-/**
- * OpportunityCard Component
- * 
- * Complete opportunity card assembly with metallic styling.
- * Displays organization, title, description, category, urgency, and apply button.
- */
-
 'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import type { Opportunity } from '@/types';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { CategoryBadge } from '@/components/ui/Badge';
-import { UrgencyIndicator } from './UrgencyIndicator';
-import { cn, truncateText, formatDate } from '@/lib/utils';
-import { getCategoryMeta } from '@/lib/constants';
 
 interface OpportunityCardProps {
     opportunity: Opportunity;
-    className?: string;
 }
 
 /**
- * Opportunity Card Component
- * 
- * Features:
- * - Metallic glass card container
- * - Category-specific color accent (left border)
- * - Organization header with logo placeholder
- * - Title and description
- * - Tags display
- * - Urgency indicator
- * - Polished metallic "Apply" button
+ * OpportunityCard - Grid card for opportunities
  */
-export function OpportunityCard({ opportunity, className }: OpportunityCardProps) {
-    // Safe destructuring with defaults
+export function OpportunityCard({ opportunity }: OpportunityCardProps) {
     const {
-        id = '',
-        title = 'Untitled Opportunity',
-        organization = 'Unknown Organization',
-        category = 'hackathon',
-        deadline = new Date().toISOString(),
-        description = '',
-        url = '#',
-        tags = [],
+        id,
+        title,
+        organization,
+        category,
+        deadline,
+        description,
         location,
-        isPaid
-    } = opportunity || {};
+        isPaid,
+        mode,
+    } = opportunity;
 
-    const categoryMeta = getCategoryMeta(category);
+    // Calculate days remaining
+    const daysRemaining = deadline
+        ? Math.max(0, Math.ceil((new Date(deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+        : null;
 
-    // Glow color based on category
-    const glowMap = {
-        hackathon: 'cyan' as const,
-        internship: 'gold' as const,
-        challenge: 'magenta' as const,
+    // Urgency color
+    const getUrgencyColor = () => {
+        if (daysRemaining === null) return 'text-zinc-400 bg-zinc-800';
+        if (daysRemaining <= 7) return 'text-red-400 bg-red-500/20';
+        if (daysRemaining <= 30) return 'text-amber-400 bg-amber-500/20';
+        return 'text-green-400 bg-green-500/20';
+    };
+
+    // Category color
+    const getCategoryColor = () => {
+        const cat = category?.toLowerCase() || '';
+        if (cat.includes('hackathon')) return 'text-cyan-400 bg-cyan-500/20';
+        if (cat.includes('internship')) return 'text-purple-400 bg-purple-500/20';
+        if (cat.includes('competition')) return 'text-amber-400 bg-amber-500/20';
+        if (cat.includes('summer')) return 'text-emerald-400 bg-emerald-500/20';
+        return 'text-zinc-400 bg-zinc-700';
     };
 
     return (
-        <Card
-            className={cn(
-                'relative overflow-hidden group',
-                className
-            )}
-            glow={glowMap[category]}
-            layout
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+        <motion.div
+            className="group relative rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-zinc-700 transition-colors h-full flex flex-col"
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.2 }}
         >
-            {/* Category accent bar */}
+            {/* Category Accent */}
             <div
-                className="absolute left-0 top-0 bottom-0 w-1 transition-all duration-300 group-hover:w-1.5"
-                style={{ backgroundColor: categoryMeta?.color || 'var(--color-silver)' }}
+                className="absolute top-0 left-0 w-1 h-full"
+                style={{
+                    background: category?.toLowerCase().includes('hackathon')
+                        ? 'linear-gradient(180deg, #00f5ff 0%, #00d4ff 100%)'
+                        : category?.toLowerCase().includes('internship')
+                            ? 'linear-gradient(180deg, #a855f7 0%, #7c3aed 100%)'
+                            : category?.toLowerCase().includes('competition')
+                                ? 'linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)'
+                                : 'linear-gradient(180deg, #10b981 0%, #059669 100%)',
+                }}
             />
 
-            <CardHeader className="pl-4">
-                {/* Top row: Organization + Badges */}
-                <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-3 min-w-0">
-                        {/* Organization icon placeholder (CSS-only) */}
-                        <div
-                            className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 text-sm font-bold"
-                            style={{
-                                background: `linear-gradient(135deg, ${categoryMeta?.bgColor || 'var(--color-chrome)'}, transparent)`,
-                                border: `1px solid ${categoryMeta?.borderColor || 'var(--color-chrome)'}`,
-                                color: categoryMeta?.color || 'var(--color-silver)',
-                            }}
-                        >
-                            {(organization || "Unknown").slice(0, 2).toUpperCase()}
-                        </div>
-
-                        <div className="min-w-0">
-                            <p className="text-xs text-[var(--color-silver)] truncate">
-                                {organization || "Unknown Organization"}
-                            </p>
-                            <h3 className="text-lg font-semibold text-[var(--color-platinum)] truncate">
-                                {title}
-                            </h3>
-                        </div>
+            <div className="p-5 flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex-1 min-w-0">
+                        <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${getCategoryColor()} mb-2`}>
+                            {category}
+                        </span>
+                        <h3 className="text-lg font-semibold text-zinc-100 line-clamp-2 group-hover:text-cyan-300 transition-colors">
+                            {title}
+                        </h3>
                     </div>
-
-                    {/* Urgency indicator */}
-                    <UrgencyIndicator deadline={deadline} />
+                    {daysRemaining !== null && (
+                        <span className={`px-2 py-1 text-xs font-medium rounded-lg whitespace-nowrap ${getUrgencyColor()}`}>
+                            {daysRemaining}d
+                        </span>
+                    )}
                 </div>
-            </CardHeader>
 
-            <CardContent className="pl-4">
-                {/* Description */}
-                <p className="text-sm text-[var(--color-silver)] mb-4 line-clamp-2">
-                    {truncateText(description, 120)}
+                {/* Organization */}
+                <p className="text-sm text-zinc-500 mb-3 truncate">
+                    {organization}
                 </p>
 
-                {/* Meta info row */}
-                <div className="flex items-center gap-3 text-xs text-[var(--color-silver)] mb-4">
+                {/* Description */}
+                <p className="text-sm text-zinc-400 line-clamp-2 mb-4 flex-grow">
+                    {description}
+                </p>
+
+                {/* Meta */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {mode && (
+                        <span className="px-2 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-md">
+                            {mode}
+                        </span>
+                    )}
                     {location && (
-                        <span className="flex items-center gap-1">
-                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
+                        <span className="px-2 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-md truncate max-w-[120px]">
                             {location}
                         </span>
                     )}
-                    <span className="flex items-center gap-1">
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        {formatDate(deadline)}
-                    </span>
                     {isPaid && (
-                        <span className="flex items-center gap-1 text-[var(--color-neon-gold)]">
-                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                        <span className="px-2 py-1 text-xs bg-amber-500/20 text-amber-400 rounded-md">
                             Paid
                         </span>
                     )}
                 </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                    <CategoryBadge category={category} />
-                    {tags.slice(0, 3).map((tag) => (
-                        <span
-                            key={tag}
-                            className="px-2 py-0.5 text-xs rounded-full bg-[var(--color-chrome)] text-[var(--color-silver)]"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                    {tags.length > 3 && (
-                        <span className="px-2 py-0.5 text-xs text-[var(--color-silver)]/60">
-                            +{tags.length - 3} more
-                        </span>
-                    )}
-                </div>
-            </CardContent>
-
-            <CardFooter className="pl-4">
-                <div className="flex items-center justify-between w-full">
-                    {/* View details link */}
-                    <a
+                {/* Actions */}
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-800">
+                    <Link
                         href={`/opportunities/${id}`}
-                        className="text-sm text-[var(--color-silver)] hover:text-[var(--color-platinum)] transition-colors"
+                        className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
                     >
                         View Details →
-                    </a>
-
-                    {/* Apply button - styled like a polished metal switch */}
-                    <Button
-                        variant="primary"
-                        size="sm"
-                        onClick={() => window.open(url, '_blank')}
-                        rightIcon={
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        }
+                    </Link>
+                    <Link
+                        href={`/opportunities/${id}`}
+                        className="px-4 py-2 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors"
                     >
                         Apply
-                    </Button>
+                    </Link>
                 </div>
-            </CardFooter>
-        </Card>
+            </div>
+        </motion.div>
     );
 }

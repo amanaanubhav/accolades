@@ -44,6 +44,7 @@ export interface Opportunity {
   location?: string;
   isPaid?: boolean;
   createdAt?: string;
+  mode?: string; // e.g., 'online', 'in-person', 'hybrid'
 }
 
 /**
