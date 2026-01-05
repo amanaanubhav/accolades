@@ -1,0 +1,236 @@
+/**
+ * Opp-Portal Global Styles
+ * 
+ * Metallic Futurism Design System
+ * Pure CSS visual flair - no raster images, 60fps guaranteed
+ */
+
+@import "tailwindcss";
+
+/* ============================================
+   METALLIC COLOR PALETTE
+   ============================================ */
+:root {
+  /* Base surfaces */
+  --color-void: #050505;
+  --color-gunmetal: #1a1a1f;
+  --color-steel: #2a2a32;
+  --color-chrome: #3a3a44;
+  --color-silver: #8a8a96;
+  --color-platinum: #c8c8d0;
+  
+  /* Neon accents */
+  --color-neon-cyan: #00f5ff;
+  --color-neon-gold: #ffd700;
+  --color-neon-magenta: #ff00ff;
+  --color-neon-red: #ff3b30;
+  --color-neon-amber: #ff9500;
+  --color-neon-green: #30d158;
+  
+  /* Gradients */
+  --gradient-chrome: linear-gradient(135deg, #3a3a44 0%, #1a1a1f 50%, #2a2a32 100%);
+  --gradient-steel: linear-gradient(180deg, #2a2a32 0%, #1a1a1f 100%);
+  --gradient-metallic-border: linear-gradient(135deg, #4a4a54 0%, #2a2a32 50%, #4a4a54 100%);
+  --gradient-glow-cyan: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.15) 0%, transparent 70%);
+  
+  /* Shadows */
+  --shadow-metal: 0 4px 24px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(0, 245, 255, 0.3), 0 0 40px rgba(0, 245, 255, 0.1);
+  --shadow-glow-gold: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1);
+  --shadow-glow-magenta: 0 0 20px rgba(255, 0, 255, 0.3), 0 0 40px rgba(255, 0, 255, 0.1);
+  
+  /* Typography */
+  --font-display: 'Inter', system-ui, sans-serif;
+  
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+html {
+  background: var(--color-void);
+}
+
+body {
+  background: var(--gradient-steel);
+  color: var(--color-platinum);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 245, 255, 0.3);
+  color: var(--color-platinum);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gunmetal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-chrome);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-silver);
+}
+
+/* ============================================
+   METALLIC EFFECTS
+   ============================================ */
+
+/* Glass effect base */
+.glass {
+  background: rgba(26, 26, 31, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Metallic border effect using pseudo-element */
+.metallic-border {
+  position: relative;
+}
+
+.metallic-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-metallic-border);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gunmetal) 25%,
+    var(--color-chrome) 50%,
+    var(--color-gunmetal) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Pulse animation for critical urgency */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 59, 48, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.8), 0 0 30px rgba(255, 59, 48, 0.4);
+  }
+}
+
+.pulse-critical {
+  animation: pulse-glow 1.5s infinite ease-in-out;
+}
+
+/* Magnetic hover effect */
+@keyframes hover-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Button press effect */
+.btn-hydraulic {
+  transition: transform 0.15s var(--transition-bounce), box-shadow 0.15s ease;
+}
+
+.btn-hydraulic:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hydraulic:active {
+  transform: translateY(1px);
+}
+
+/* Focus ring */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-void), 0 0 0 4px var(--color-neon-cyan);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient text */
+.text-gradient-chrome {
+  background: linear-gradient(135deg, var(--color-platinum) 0%, var(--color-silver) 50%, var(--color-platinum) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.glow-gold {
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.glow-magenta {
+  box-shadow: var(--shadow-glow-magenta);
+}
+
+/* Category color classes */
+.category-hackathon {
+  --category-color: var(--color-neon-cyan);
+  --category-bg: rgba(0, 245, 255, 0.15);
+  --category-glow: var(--shadow-glow-cyan);
+}
+
+.category-internship {
+  --category-color: var(--color-neon-gold);
+  --category-bg: rgba(255, 215, 0, 0.15);
+  --category-glow: var(--shadow-glow-gold);
+}
+
+.category-challenge {
+  --category-color: var(--color-neon-magenta);
+  --category-bg: rgba(255, 0, 255, 0.15);
+  --category-glow: var(--shadow-glow-magenta);
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
