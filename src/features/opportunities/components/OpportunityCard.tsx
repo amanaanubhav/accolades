@@ -117,13 +117,13 @@ export function OpportunityCard({ opportunity }: OpportunityCardProps) {
                 {/* Actions */}
                 <div className="flex items-center justify-between pt-4 border-t border-zinc-800">
                     <Link
-                        href={`/opportunities/${id}`}
+                        href={`/opportunities/${opportunity.slug || id}`}
                         className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
                     >
                         View Details →
                     </Link>
                     <Link
-                        href={`/opportunities/${id}`}
+                        href={`/opportunities/${opportunity.slug || id}`}
                         className="px-4 py-2 text-sm font-medium rounded-lg bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors"
                     >
                         Apply

@@ -49,6 +49,13 @@ interface DataFileStructure {
     opportunities: OpportunityInput[];
 }
 
+function generateSlug(title: string): string {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric with hyphens
+        .replace(/(^-|-$)+/g, '');    // Trim hyphens from start/end
+}
+
 async function seed() {
     console.log('🌱 Starting Master Seed Process...');
 
@@ -113,7 +120,9 @@ async function seed() {
                     prerequisites: item.prerequisites,
                     brief_overview: item.brief_overview,
                     banner_url: item.banner_url || null,
-                    is_verified: item.is_verified ?? true
+
+                    is_verified: item.is_verified ?? true,
+                    slug: generateSlug(item.title)
                 }, { onConflict: 'id' })
                 .select('id')
                 .single();

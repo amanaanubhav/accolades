@@ -45,7 +45,18 @@ export interface Opportunity {
   isPaid?: boolean;
   createdAt?: string;
   mode?: string; // e.g., 'online', 'in-person', 'hybrid'
+  slug?: string;
 }
+
+/**
+ * Filter mode types
+ */
+export type FilterMode = 'all' | 'Virtual' | 'Hybrid' | 'On-site';
+
+/**
+ * Filter cost types
+ */
+export type FilterCost = 'all' | 'Free' | 'Paid';
 
 /**
  * Filter state for the opportunity grid
@@ -54,6 +65,8 @@ export interface FilterState {
   category: OpportunityCategory | 'all';
   search: string;
   showExpired: boolean;
+  mode: FilterMode;
+  cost: FilterCost;
 }
 
 /**

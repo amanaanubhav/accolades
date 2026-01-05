@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import { DetailView } from '@/features/opportunities/DetailView';
 
 interface PageProps {
-    params: Promise<{ id: string }>;
+    params: Promise<{ slug: string }>;
 }
 
 /**
@@ -14,14 +14,17 @@ export async function generateMetadata(
     { params }: PageProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const { id } = await params;
+    const { slug } = await params;
 
     const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    const { data: opportunity } = await supabase
+    // Check for UUID (backward compatibility)
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
+
+    let query = supabase
         .from('opportunities')
         .select(`
             title,
@@ -31,9 +34,15 @@ export async function generateMetadata(
                 name,
                 logo_url
             )
-        `)
-        .eq('id', id)
-        .single();
+        `);
+
+    if (isUuid) {
+        query = query.eq('id', slug);
+    } else {
+        query = query.eq('slug', slug);
+    }
+
+    const { data: opportunity } = await query.single();
 
     if (!opportunity) {
         return { title: 'Opportunity Not Found' };
@@ -67,14 +76,17 @@ export async function generateMetadata(
  * Detail Page - Server Component
  */
 export default async function Page({ params }: PageProps) {
-    const { id } = await params;
+    const { slug } = await params;
 
     const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    const { data: opportunity, error } = await supabase
+    // Check if the slug is actually a UUID (backward compatibility)
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
+
+    let query = supabase
         .from('opportunities')
         .select(`
             *,
@@ -88,8 +100,15 @@ export default async function Page({ params }: PageProps) {
                     name
                 )
             )
-        `)
-        .eq('id', id)
+        `);
+
+    if (isUuid) {
+        query = query.eq('id', slug);
+    } else {
+        query = query.eq('slug', slug);
+    }
+
+    const { data: opportunity, error } = await query
         .single();
 
     if (error || !opportunity) {
@@ -110,6 +129,7 @@ export default async function Page({ params }: PageProps) {
         isPaid: opportunity.cost_type === 'Paid',
         createdAt: opportunity.created_at,
         mode: opportunity.mode,
+        slug: opportunity.slug,
         organizations: opportunity.organizations,
         stipend_prize: opportunity.stipend_prize,
         prerequisites: opportunity.prerequisites,

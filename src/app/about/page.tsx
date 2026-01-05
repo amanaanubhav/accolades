@@ -1,8 +1,9 @@
 import AboutPage from '@/features/about/AboutPage';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'About | Accolades',
-    description: 'Learn about our mission to connect ambitious students with world-class opportunities.',
+    description: 'Learn more about the mission behind the Accolades Opportunity Portal.',
 };
 
 export default function Page() {

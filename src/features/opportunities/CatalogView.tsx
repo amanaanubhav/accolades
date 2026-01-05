@@ -1,17 +1,15 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Opportunity } from '@/types';
+import type { Opportunity, FilterMode, FilterCost, FilterCategory } from '@/types';
 import { OpportunityCard } from './components/OpportunityCard';
+import { useFilter } from '@/hooks/useFilter';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface CatalogViewProps {
     initialData: Opportunity[];
 }
-
-type FilterMode = 'all' | 'Virtual' | 'Hybrid' | 'On-site';
-type FilterCost = 'all' | 'Free' | 'Paid';
-type FilterCategory = 'all' | 'Competition' | 'Hackathon' | 'Summer Program' | 'Internship' | 'Hiring Challenge';
 
 /**
  * CatalogView - Opportunities Grid with Search & Filters
@@ -20,49 +18,51 @@ type FilterCategory = 'all' | 'Competition' | 'Hackathon' | 'Summer Program' | '
  * - initialData: Server-fetched opportunities array
  */
 export function CatalogView({ initialData }: CatalogViewProps) {
-    const [search, setSearch] = useState('');
-    const [modeFilter, setModeFilter] = useState<FilterMode>('all');
-    const [costFilter, setCostFilter] = useState<FilterCost>('all');
-    const [categoryFilter, setCategoryFilter] = useState<FilterCategory>('all');
+    // Use the custom hook for URL-synced filters
+    const {
+        filters,
+        setSearch,
+        setCategory,
+        setMode,
+        setCost,
+        resetFilters
+    } = useFilter();
+
+    // Local state for debounced search
+    const [searchTerm, setSearchTerm] = useState(filters.search);
+    const debouncedSearch = useDebounce(searchTerm, 300);
+
+    // Effect: Sync local search to URL (Debounced)
+    useEffect(() => {
+        if (debouncedSearch !== filters.search) {
+            setSearch(debouncedSearch);
+        }
+    }, [debouncedSearch, filters.search, setSearch]);
+
+    // Effect: Sync URL to local search (External changes)
+    useEffect(() => {
+        if (filters.search !== debouncedSearch) {
+            setSearchTerm(filters.search);
+        }
+    }, [filters.search]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // UI-only state
     const [showFilters, setShowFilters] = useState(false);
 
-    // Filter opportunities
-    const filteredOpportunities = useMemo(() => {
-        return initialData.filter((opp) => {
-            // Search
-            const searchLower = search.toLowerCase();
-            const matchesSearch =
-                search === '' ||
-                opp.title.toLowerCase().includes(searchLower) ||
-                opp.organization.toLowerCase().includes(searchLower) ||
-                opp.description?.toLowerCase().includes(searchLower);
+    // Server-side filtering is now enabled.
+    // initialData already contains the filtered results from the server.
+    const filteredOpportunities = initialData;
 
-            // Mode filter
-            const matchesMode = modeFilter === 'all' || opp.mode === modeFilter;
+    const hasActiveFilters =
+        filters.search !== '' ||
+        filters.mode !== 'all' ||
+        filters.cost !== 'all' ||
+        filters.category !== 'all';
 
-            // Cost filter
-            const matchesCost =
-                costFilter === 'all' ||
-                (costFilter === 'Free' && !opp.isPaid) ||
-                (costFilter === 'Paid' && opp.isPaid);
-
-            // Category filter
-            const matchesCategory =
-                categoryFilter === 'all' ||
-                opp.category.toLowerCase() === categoryFilter.toLowerCase();
-
-            return matchesSearch && matchesMode && matchesCost && matchesCategory;
-        });
-    }, [initialData, search, modeFilter, costFilter, categoryFilter]);
-
-    const clearFilters = () => {
-        setSearch('');
-        setModeFilter('all');
-        setCostFilter('all');
-        setCategoryFilter('all');
+    const handleClearSearch = () => {
+        setSearchTerm('');
+        setSearch(''); // Instant update
     };
-
-    const hasActiveFilters = search || modeFilter !== 'all' || costFilter !== 'all' || categoryFilter !== 'all';
 
     return (
         <main className="min-h-screen bg-zinc-950 py-12">
@@ -100,14 +100,14 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                         </svg>
                         <input
                             type="text"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Search by title, organization, or keyword..."
                             className="w-full pl-12 pr-4 py-4 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
                         />
-                        {search && (
+                        {searchTerm && (
                             <button
-                                onClick={() => setSearch('')}
+                                onClick={handleClearSearch}
                                 className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
                             >
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -122,14 +122,17 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                         <button
                             onClick={() => setShowFilters(!showFilters)}
                             className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors ${showFilters
-                                    ? 'border-cyan-500 bg-cyan-500/10 text-cyan-400'
-                                    : 'border-zinc-700 text-zinc-400 hover:border-zinc-600'
+                                ? 'border-cyan-500 bg-cyan-500/10 text-cyan-400'
+                                : 'border-zinc-700 text-zinc-400 hover:border-zinc-600'
                                 }`}
                         >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                             </svg>
                             Filters
+                            {(filters.mode !== 'all' || filters.cost !== 'all' || filters.category !== 'all') && (
+                                <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                            )}
                         </button>
 
                         {/* Results Count */}
@@ -139,7 +142,7 @@ export function CatalogView({ initialData }: CatalogViewProps) {
 
                         {hasActiveFilters && (
                             <button
-                                onClick={clearFilters}
+                                onClick={resetFilters}
                                 className="ml-auto text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
                             >
                                 Clear all
@@ -161,8 +164,8 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                                     <div>
                                         <label className="block text-sm font-medium text-zinc-400 mb-2">Mode</label>
                                         <select
-                                            value={modeFilter}
-                                            onChange={(e) => setModeFilter(e.target.value as FilterMode)}
+                                            value={filters.mode}
+                                            onChange={(e) => setMode(e.target.value as FilterMode)}
                                             className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 focus:outline-none focus:border-cyan-500"
                                         >
                                             <option value="all">All Modes</option>
@@ -176,8 +179,8 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                                     <div>
                                         <label className="block text-sm font-medium text-zinc-400 mb-2">Cost</label>
                                         <select
-                                            value={costFilter}
-                                            onChange={(e) => setCostFilter(e.target.value as FilterCost)}
+                                            value={filters.cost}
+                                            onChange={(e) => setCost(e.target.value as FilterCost)}
                                             className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 focus:outline-none focus:border-cyan-500"
                                         >
                                             <option value="all">All</option>
@@ -190,8 +193,8 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                                     <div>
                                         <label className="block text-sm font-medium text-zinc-400 mb-2">Category</label>
                                         <select
-                                            value={categoryFilter}
-                                            onChange={(e) => setCategoryFilter(e.target.value as FilterCategory)}
+                                            value={filters.category}
+                                            onChange={(e) => setCategory(e.target.value as any)}
                                             className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-200 focus:outline-none focus:border-cyan-500"
                                         >
                                             <option value="all">All Categories</option>
@@ -245,7 +248,7 @@ export function CatalogView({ initialData }: CatalogViewProps) {
                             Try adjusting your search or filters to discover more opportunities.
                         </p>
                         <button
-                            onClick={clearFilters}
+                            onClick={resetFilters}
                             className="px-4 py-2 rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-colors"
                         >
                             Clear Filters
