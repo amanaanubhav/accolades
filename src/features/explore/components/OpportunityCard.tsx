@@ -59,7 +59,7 @@ export function OpportunityCard({ opportunity, variant = 'default' }: Opportunit
 
     const urgency = getUrgencyStyles();
     const categoryStyle = getCategoryStyles();
-    const linkHref = `/opportunities/${slug || id}`;
+    const linkHref = `/explore/opportunity/${slug || id}`;
 
     return (
         <motion.article

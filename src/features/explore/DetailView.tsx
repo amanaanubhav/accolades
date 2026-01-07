@@ -76,7 +76,7 @@ export function DetailView({ opportunity }: DetailViewProps) {
 
                 {/* Back Button */}
                 <Link
-                    href="/opportunities"
+                    href="/explore"
                     className="absolute top-6 left-6 z-10 flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900/80 backdrop-blur-sm text-zinc-300 hover:text-white border border-zinc-700 hover:border-zinc-600 transition-colors"
                 >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -172,10 +172,10 @@ export function DetailView({ opportunity }: DetailViewProps) {
                             {daysRemaining !== null && (
                                 <div
                                     className={`p-4 rounded-xl text-center ${daysRemaining <= 7
-                                            ? 'bg-red-500/20 text-red-400'
-                                            : daysRemaining <= 30
-                                                ? 'bg-amber-500/20 text-amber-400'
-                                                : 'bg-green-500/20 text-green-400'
+                                        ? 'bg-red-500/20 text-red-400'
+                                        : daysRemaining <= 30
+                                            ? 'bg-amber-500/20 text-amber-400'
+                                            : 'bg-green-500/20 text-green-400'
                                         }`}
                                 >
                                     <span className="text-2xl font-bold">{daysRemaining}</span>
