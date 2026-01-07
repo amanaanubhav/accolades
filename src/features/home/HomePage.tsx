@@ -54,7 +54,7 @@ export default function HomePage() {
                         className="flex flex-wrap justify-center gap-4"
                     >
                         <Link
-                            href="/opportunities"
+                            href="/explore"
                             className="group relative px-8 py-4 bg-white text-black font-bold rounded-2xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
                         >
                             Explore Opportunities

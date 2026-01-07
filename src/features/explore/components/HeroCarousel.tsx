@@ -12,17 +12,23 @@ interface HeroCarouselProps {
 
 export function HeroCarousel({ featured }: HeroCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMounted, setIsMounted] = useState(false);
 
-    // Auto-rotate every 6 seconds
+    // Set mounted after hydration
     useEffect(() => {
-        if (featured.length <= 1) return;
+        setIsMounted(true);
+    }, []);
+
+    // Auto-rotate every 6 seconds (only after mount to avoid hydration mismatch)
+    useEffect(() => {
+        if (!isMounted || featured.length <= 1) return;
 
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % featured.length);
         }, 6000);
 
         return () => clearInterval(interval);
-    }, [featured.length]);
+    }, [featured.length, isMounted]);
 
     if (!featured.length) return null;
 

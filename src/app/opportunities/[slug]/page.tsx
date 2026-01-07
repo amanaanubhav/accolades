@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 import { createClient } from '@supabase/supabase-js';
-import { DetailView } from '@/features/opportunities/DetailView';
+import { DetailView } from '@/features/explore/DetailView';
 
 interface PageProps {
     params: Promise<{ slug: string }>;

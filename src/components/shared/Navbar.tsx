@@ -31,6 +31,11 @@ export default function Navbar() {
         }
     });
 
+    // Hide on /explore routes (they have their own header)
+    if (pathname.startsWith('/explore')) {
+        return null;
+    }
+
     return (
         <>
             <motion.header

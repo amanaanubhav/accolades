@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Github, Twitter, Mail, ExternalLink, Cpu } from 'lucide-react';
 
 const footerLinks = {
     platform: [
-        { name: 'Explore', href: '/opportunities' },
+        { name: 'Explore', href: '/explore' },
         { name: 'Submit', href: '/submit' },
         { name: 'About Us', href: '/about' },
     ],
@@ -15,13 +16,20 @@ const footerLinks = {
         { name: 'Terms', href: '#' },
     ],
     social: [
-        { name: 'GitHub', href: 'https://github.com/DSAlgo-Code', icon: Github }, // Linked to your DSA repo
+        { name: 'GitHub', href: 'https://github.com/DSAlgo-Code', icon: Github },
         { name: 'X', href: '#', icon: Twitter },
         { name: 'Contact', href: 'mailto:aman@example.com', icon: Mail },
     ]
 };
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    // Hide on /explore routes (dashboard has its own layout)
+    if (pathname.startsWith('/explore')) {
+        return null;
+    }
+
     return (
         <footer className="relative border-t border-zinc-900 bg-black pt-16 pb-8 overflow-hidden">
             {/* Subtle Background Glow */}

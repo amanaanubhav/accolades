@@ -2,7 +2,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { OpportunityCard } from '@/features/opportunities/components/OpportunityCard';
+import { OpportunityCard } from './OpportunityCard';
 import { Opportunity } from '@/types';
 
 interface SwimlaneProps {
