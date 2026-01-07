@@ -8,7 +8,7 @@ import { Menu, X, Cpu, Sparkles } from 'lucide-react';
 
 const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Explore', href: '/opportunities' },
+    { name: 'Explore', href: '/explore' },
     { name: 'About', href: '/about' },
 ];
 
@@ -127,8 +127,8 @@ export default function Navbar() {
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
                                     className={`text-lg font-bold p-4 rounded-xl border border-transparent transition-all ${pathname === link.href
-                                            ? 'bg-zinc-800 text-white border-zinc-700'
-                                            : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white'
+                                        ? 'bg-zinc-800 text-white border-zinc-700'
+                                        : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white'
                                         }`}
                                 >
                                     {link.name}

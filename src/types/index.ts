@@ -38,8 +38,12 @@ export interface Opportunity {
   organization: string;
   category: OpportunityCategory;
   deadline: string; // ISO date string
+  end_date: string; // Supabase field
   description: string;
+  brief_overview?: string;
   url: string;
+  apply_link?: string;
+  banner_url?: string;
   tags: string[];
   location?: string;
   isPaid?: boolean;
