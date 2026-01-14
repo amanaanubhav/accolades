@@ -40,6 +40,7 @@ export default async function ExplorePage() {
 
     if (error) {
         console.error('Error fetching opportunities:', error);
+        console.error('Error details:', JSON.stringify(error, null, 2));
     }
 
     const transformedData = (opportunities || []).map(transformOpportunity);

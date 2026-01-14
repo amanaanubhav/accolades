@@ -21,20 +21,11 @@ export async function generateMetadata(
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    // Check for UUID (backward compatibility)
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
 
     let query = supabase
         .from('opportunities')
-        .select(`
-            title,
-            brief_overview,
-            banner_url,
-            organizations (
-                name,
-                logo_url
-            )
-        `);
+        .select(`title, brief_overview, banner_url, organizations (name, logo_url)`);
 
     if (isUuid) {
         query = query.eq('id', slug);
@@ -63,12 +54,6 @@ export async function generateMetadata(
             description: opportunity.brief_overview,
             images: [{ url: ogImage, width: 1200, height: 630, alt: opportunity.title }],
         },
-        twitter: {
-            card: 'summary_large_image',
-            title,
-            description: opportunity.brief_overview,
-            images: [ogImage],
-        },
     };
 }
 
@@ -83,24 +68,11 @@ export default async function Page({ params }: PageProps) {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    // Check if the slug is actually a UUID (backward compatibility)
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
 
     let query = supabase
         .from('opportunities')
-        .select(`
-            *,
-            organizations (
-                name,
-                logo_url,
-                website_url
-            ),
-            opportunity_tags (
-                tags (
-                    name
-                )
-            )
-        `);
+        .select(`*, organizations (name, logo_url, website_url), opportunity_tags (tags (name))`);
 
     if (isUuid) {
         query = query.eq('id', slug);
@@ -114,7 +86,6 @@ export default async function Page({ params }: PageProps) {
         notFound();
     }
 
-    // Transform for DetailView
     const transformedOpportunity = {
         id: opportunity.id,
         title: opportunity.title,

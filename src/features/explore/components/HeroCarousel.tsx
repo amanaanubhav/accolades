@@ -69,7 +69,7 @@ export function HeroCarousel({ featured }: HeroCarouselProps) {
                             <div className="flex items-center gap-6 text-sm font-medium text-zinc-500">
                                 <span className="flex items-center gap-2">
                                     <Calendar size={16} />
-                                    {new Date(heroItem.end_date).toLocaleDateString()}
+                                    {new Date(heroItem.end_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                                 </span>
                                 <span className="bg-zinc-800 text-zinc-300 px-2 py-1 rounded text-xs uppercase tracking-wider">
                                     {heroItem.mode}

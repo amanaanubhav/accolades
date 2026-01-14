@@ -12,9 +12,9 @@ export default function ExploreHome({ initialData }: ExploreHomeProps) {
     // Mock grouping logic - in a real app this would likely come pre-grouped from server or use separate queries
     const featured = initialData.slice(0, 1); // Top 1 for Hero
     const trending = initialData.slice(0, 5);
-    const hackathons = initialData.filter(o => o.category === 'Hackathon');
-    const internships = initialData.filter(o => o.category === 'Internship');
-    const closingSoon = initialData.sort((a, b) => new Date(a.end_date).getTime() - new Date(b.end_date).getTime()).slice(0, 5);
+    const hackathons = initialData.filter(o => o.category === 'hackathon');
+    const internships = initialData.filter(o => o.category === 'internship');
+    const closingSoon = [...initialData].sort((a, b) => new Date(a.end_date).getTime() - new Date(b.end_date).getTime()).slice(0, 5);
 
     return (
         <div className="min-h-screen bg-black pb-20">
