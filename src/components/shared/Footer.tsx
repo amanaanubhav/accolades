@@ -12,11 +12,13 @@ const footerLinks = {
         { name: 'About Us', href: '/about' },
     ],
     legal: [
-        { name: 'Privacy', href: '#' },
-        { name: 'Terms', href: '#' },
+        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms of Service', href: '#' },
+        { name: 'Cookie Policy', href: '#' },
+        { name: 'Disclaimer', href: '#' },
     ],
     social: [
-        { name: 'GitHub', href: 'https://github.com/DSAlgo-Code', icon: Github },
+        { name: 'GitHub', href: 'https://github.com/amananubhav', icon: Github },
         { name: 'X', href: '#', icon: Twitter },
         { name: 'Contact', href: 'mailto:aman@example.com', icon: Mail },
     ]
@@ -25,8 +27,8 @@ const footerLinks = {
 export default function Footer() {
     const pathname = usePathname();
 
-    // Hide on /explore routes (dashboard has its own layout)
-    if (pathname.startsWith('/explore')) {
+    // Hide on /explore routes (dashboard has its own layout) and homepage (has its own footer)
+    if (pathname.startsWith('/explore') || pathname === '/') {
         return null;
     }
 

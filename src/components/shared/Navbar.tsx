@@ -31,10 +31,7 @@ export default function Navbar() {
         }
     });
 
-    // Hide on /explore routes (they have their own header)
-    if (pathname.startsWith('/explore')) {
-        return null;
-    }
+    // Navbar is now shown on ALL pages for consistency
 
     return (
         <>
@@ -149,8 +146,8 @@ export default function Navbar() {
                                             href={link.href}
                                             onClick={() => setIsOpen(false)}
                                             className={`flex items-center justify-between p-4 rounded-xl transition-all ${isActive
-                                                    ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-white border border-white/10'
-                                                    : 'text-zinc-400 hover:bg-white/5 hover:text-white'
+                                                ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-white border border-white/10'
+                                                : 'text-zinc-400 hover:bg-white/5 hover:text-white'
                                                 }`}
                                         >
                                             <span className="text-base font-semibold">{link.name}</span>
