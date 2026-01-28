@@ -127,7 +127,7 @@ export default function AboutPage() {
                 <section className="text-center">
                     <h2 className="text-2xl font-bold mb-0">Ready to start?</h2>
                     <Link
-                        href="/opportunities"
+                        href="/explore"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all"
                     >
                         Explore the Catalog <Zap size={18} fill="black" />

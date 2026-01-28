@@ -53,7 +53,7 @@ export default function ExploreHome({ initialData }: ExploreHomeProps) {
                 {/* Fallback if data is sparse, show generic list */}
                 <CategorySwimlane
                     title="Recently Added"
-                    link="/opportunities"
+                    link="/explore"
                     items={trending}
                 />
             </div>

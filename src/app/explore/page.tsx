@@ -27,16 +27,27 @@ function transformOpportunity(row: any): Opportunity {
     };
 }
 
-export default async function ExplorePage() {
+export default async function ExplorePage(props: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+    const searchParams = await props.searchParams;
+    const search = typeof searchParams.search === 'string' ? searchParams.search : undefined;
+
     const supabase = await createClient();
 
-    // Fetch active verified opportunities with organization join
-    const { data: opportunities, error } = await supabase
+    let query = supabase
         .from('opportunities')
         .select('*, organizations(name, logo_url)')
         .eq('is_verified', true)
         .gt('end_date', new Date().toISOString())
         .order('created_at', { ascending: false });
+
+    if (search) {
+        query = query.ilike('title', `%${search}%`);
+    }
+
+    // Fetch active verified opportunities with organization join and search filter
+    const { data: opportunities, error } = await query;
 
     if (error) {
         console.error('Error fetching opportunities:', error);

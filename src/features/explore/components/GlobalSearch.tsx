@@ -11,7 +11,7 @@ export function GlobalSearch() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (query.trim()) {
-            router.push(`/opportunities?search=${encodeURIComponent(query.trim())}`);
+            router.push(`/explore?search=${encodeURIComponent(query.trim())}`);
         }
     };
 

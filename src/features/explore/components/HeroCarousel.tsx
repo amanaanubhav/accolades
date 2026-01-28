@@ -78,7 +78,7 @@ export function HeroCarousel({ featured }: HeroCarouselProps) {
 
                             <div className="pt-4">
                                 <Link
-                                    href={`/opportunities/${heroItem.slug || heroItem.id}`}
+                                    href={`/explore/opportunity/${heroItem.slug || heroItem.id}`}
                                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-bold hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all"
                                 >
                                     View Details <ArrowRight size={18} />
