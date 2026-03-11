@@ -11,6 +11,7 @@ function transformOpportunity(row: any): Opportunity {
         title: row.title || 'Untitled',
         organization: row.organizations?.name || 'Unknown Organization',
         category: mapCategory(row.category),
+        end_date: row.end_date,
         deadline: row.end_date || new Date().toISOString(),
         description: row.brief_overview || '',
         url: row.apply_link || '#',

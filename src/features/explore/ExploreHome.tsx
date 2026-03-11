@@ -43,7 +43,7 @@ export default function ExploreHome({ initialData, searchQuery }: ExploreHomePro
     const trending = initialData.slice(0, 5);
     const hackathons = initialData.filter(o => o.category === 'hackathon');
     const internships = initialData.filter(o => o.category === 'internship');
-    const closingSoon = [...initialData].sort((a, b) => new Date(a.end_date).getTime() - new Date(b.end_date).getTime()).slice(0, 5);
+    const closingSoon = [...initialData].sort((a, b) => new Date(a.end_date || a.deadline).getTime() - new Date(b.end_date || b.deadline).getTime()).slice(0, 5);
 
     // If search is active, show search results view
     if (searchQuery) {
