@@ -56,5 +56,5 @@ export default async function ExplorePage(props: {
 
     const transformedData = (opportunities || []).map(transformOpportunity);
 
-    return <ExploreHome initialData={transformedData} />;
+    return <ExploreHome initialData={transformedData} searchQuery={search} />;
 }
