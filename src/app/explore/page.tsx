@@ -1,6 +1,12 @@
 import { createClient } from '@/utils/supabase/server';
 import ExploreHome from '@/features/explore/ExploreHome';
 import { Opportunity } from '@/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Explore Opportunities | Accolades by Aman Anubhav',
+    description: 'Browse the latest hackathons, tech internships, open source programs, and summer research fellowships curated on the Accolades portal by Aman Anubhav.',
+};
 
 export const dynamic = 'force-dynamic';
 

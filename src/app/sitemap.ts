@@ -13,21 +13,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const routes = [
         '',
         '/about',
-        '/opportunities',
+        '/explore',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'daily' as const,
-        priority: 1.0,
+        priority: route === '' ? 1.0 : 0.9,
     }));
 
     // 2. Fetch Dynamic Opportunity Routes
     const { data: opportunities } = await supabase
         .from('opportunities')
-        .select('id, created_at');
+        .select('slug, created_at')
+        .eq('is_verified', true);
 
     const dynamicRoutes = (opportunities || []).map((opp) => ({
-        url: `${baseUrl}/opportunities/${opp.id}`,
+        url: `${baseUrl}/explore/opportunity/${opp.slug}`,
         lastModified: opp.created_at || new Date().toISOString(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,

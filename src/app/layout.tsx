@@ -9,8 +9,72 @@ import Footer from "@/components/shared/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Accolades | Opp-Portal",
-    description: "Futuristic Opportunity Discovery",
+    title: {
+        default: "Accolades | Opp-Portal by Aman Anubhav",
+        template: "%s | Accolades by Aman Anubhav",
+    },
+    description: "Discover the best hackathons, internships, fellowships, and research programs for students. Curated by Aman Anubhav (www.amananubhav.com).",
+    keywords: [
+        "Aman Anubhav",
+        "Aman Anubhav project",
+        "Aman Anubhav website",
+        "amananubhav",
+        "www.amananubhav.com",
+        "Accolades",
+        "Accolades project",
+        "Accolades portal",
+        "Opp-Portal",
+        "opportunities for students",
+        "hackathons 2024",
+        "hackathons for beginners",
+        "student internships",
+        "summer research programs",
+        "undergraduate research opportunities",
+        "open source programs",
+        "fellowships for students",
+        "tech student opportunities",
+        "scholarships",
+        "coding bootcamps",
+        "student developer programs"
+    ],
+    authors: [{ name: "Aman Anubhav", url: "https://www.amananubhav.com" }],
+    creator: "Aman Anubhav",
+    publisher: "Aman Anubhav",
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://accolades.vercel.app'),
+    openGraph: {
+        title: "Accolades | Discover Student Opportunities",
+        description: "Accolades is a cutting-edge platform by Aman Anubhav connecting students with top hackathons, internships, and research programs globally.",
+        url: "https://accolades.vercel.app",
+        siteName: "Accolades Opportunity Portal",
+        images: [
+            {
+                url: "/og-image.png", // Assuming an og-image will be added later or fallback to social media image
+                width: 1200,
+                height: 630,
+                alt: "Accolades Opportunity Portal by Aman Anubhav",
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Accolades | Opp-Portal by Aman Anubhav",
+        description: "Discover top hackathons, internships, and summer research programs on Accolades by Aman Anubhav.",
+        creator: "@amananubhav", // Placeholder handle, can adjust if known
+        images: ["/og-image.png"],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
 };
 
 export default function RootLayout({
